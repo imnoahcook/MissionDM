@@ -11,5 +11,5 @@ module.exports = {
   "jsxBracketSameLine": false,
   "printWidth": 80,
   "proseWrap": "preserve",
-  "requirePragma": false
+  "requirePragma": false,
 }

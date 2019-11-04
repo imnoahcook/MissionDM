@@ -15,7 +15,7 @@ app.use(
 // parse application/json
 app.use(bodyParser.json());
 
-// API Routes
+// API Routess
 app.use('/api', require('../routes/api.routes'));
 
 // Open up and listen to port listed in config file

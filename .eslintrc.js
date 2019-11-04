@@ -7,8 +7,10 @@ module.exports = {
     node: true
   },
   extends: [
+    'airbnb',
+    'airbnb/hooks',
     'plugin:react/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
     'prettier/react'
   ],
   parserOptions: {
@@ -19,12 +21,11 @@ module.exports = {
     },
   },
   rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-    // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    "prettier/prettier": "error",
   },
   settings: {
     react: {
-      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+      version: 'detect',
     },
     'import/resolver': {
       'webpack': {
