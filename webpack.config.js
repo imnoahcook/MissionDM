@@ -15,7 +15,7 @@ module.exports = {
       {
         enforce: 'pre',
         test: /\.jsx?$/,
-        use: ['source-map-loader', 'eslint-loader', 'babel-loader'],
+        use: ['source-map-loader', 'babel-loader'],
         exclude: /node_modules/,
       },
       {
