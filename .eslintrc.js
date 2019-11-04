@@ -8,7 +8,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/react'
   ],
   parserOptions: {
     ecmaVersion: 2018,
