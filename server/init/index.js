@@ -18,6 +18,10 @@ app.use(bodyParser.json());
 // API Routess
 app.use('/api', require('../routes/api.routes'));
 
+app.all('*', (req, res) => {
+  res.status(404).json({ status: 'No Endpoint' });
+});
+
 // Open up and listen to port listed in config file
 app.listen(
   config.port,
