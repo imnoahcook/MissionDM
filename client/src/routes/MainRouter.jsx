@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Test, Test2 } from 'pages';
+import { Login, Target, Test } from 'pages';
 
 const MainRouter = () => {
   return (
     <Router>
-      <Route exact path="/" component={Test} />
-      <Route exact path="/test" component={Test2} />
+      <Route exact path="/" component={Login} />
+      <Route exact path="/target" component={Target} />
+      <Route exact path="/test" component={Test} />
     </Router>
   );
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const Test = () => {
+const Login = () => {
   return (
     <div>
       <h1>Welcome to mission DM</h1>
@@ -11,4 +11,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Login;

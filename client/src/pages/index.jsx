@@ -1,4 +1,5 @@
+import Target from './Target';
+import Login from './Login';
 import Test from './Test';
-import Test2 from './Test2';
 
-export { Test, Test2 };
+export { Target, Login, Test };
