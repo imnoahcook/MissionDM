@@ -1,11 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const config = require('./config');
-const { ApolloServer } = require('apollo-server-express');
-// const typeDefs = require('#root/graphql/typeDefs');
-// import resolvers from '#root/graphql/resolvers';
-const typeDefs = require('../graphql/typeDefs');
-
+import express from 'express';
+import bodyParser from 'body-parser';
+import config from './config';
+import { ApolloServer } from 'apollo-server-express';
+import typeDefs from '../graphql/typeDefs';
 // A map of functions which return data for the schema.
 
 const apolloServer = new ApolloServer({

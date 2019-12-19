@@ -3,17 +3,27 @@
   "version": "1.0.0",
   "description": "MissionDM is an assassin like game!",
   "main": "server/init/index.js",
+  "private": true,
   "dependencies": {
+    "apollo-server": "^2.9.13",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-watch": "^7.0.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "file-loader": "^4.2.0",
+    "graphql": "^14.5.8",
+    "mongoose": "^5.8.1",
+    "parcel": "^1.12.4",
     "path": "^0.12.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
@@ -38,14 +48,16 @@
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "watch": "babel-watch server/index.js",
+    "start:dev": "babel-node server/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imnoahcook/MissionDM.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/imnoahcook/MissionDM/issues"
   },
