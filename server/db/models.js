@@ -16,10 +16,6 @@ Game.init(
     },
   },
   {
-    defaultScope: {
-      attributes: { exclude: ['deletedAt'] },
-    },
-    paranoid: true,
     sequelize,
     modelName: 'game',
   },
@@ -36,10 +32,6 @@ Team.init(
     name: Sequelize.STRING,
   },
   {
-    defaultScope: {
-      attributes: { exclude: ['deletedAt'] },
-    },
-    paranoid: true,
     sequelize,
     modelName: 'team',
   },
@@ -79,10 +71,6 @@ Player.init(
     },
   },
   {
-    defaultScope: {
-      attributes: { exclude: ['deletedAt'] },
-    },
-    paranoid: true,
     sequelize,
     modelName: 'player',
     targetId: {
