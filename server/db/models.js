@@ -92,6 +92,8 @@ Player.init(
   },
 );
 
-
+Player.belongsTo(Game);
+Game.hasMany(Player);
+Team.hasMany(Player);
 
 export default [Game, Team, Player];
