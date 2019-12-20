@@ -1,3 +1,16 @@
-import mongoose from 'mongoose';
+import { Sequelize } from 'sequelize';
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+import accessEnv from '#root/helpers/accessEnv';
+// import models from '#root/db/models';
+const DB_URL = accessEnv('DB_URL');
+
+const sequelize = new Sequelize(DB_URL, {
+  dialectOptions: {
+    charset: 'uft8',
+    multipleStatements: true,
+  },
+  logging: false,
+  // models
+});
+
+export default sequelize;
