@@ -60,7 +60,7 @@ Player.init(
         model: Team,
         key: 'id',
       },
-      allowNull: true,
+      allowNull: false,
     },
     name: Sequelize.STRING,
     imageurl: Sequelize.STRING,
