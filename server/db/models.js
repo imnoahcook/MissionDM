@@ -1,4 +1,5 @@
-import { Table, Model, Column, DataType } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
+import sequelize from 'sequelize';
 
 class Game extends Model {}
 Game.init(
@@ -20,6 +21,8 @@ Game.init(
     modelName: 'game',
   },
 );
+
+Game.init;
 
 class Team extends Model {}
 Team.init(
