@@ -65,6 +65,8 @@ Player.init(
     name: Sequelize.STRING,
     imageurl: Sequelize.STRING,
     admin: Sequelize.BOOLEAN,
+    killCount: Sequelize.INTEGER.UNSIGNED,
+    killTime: Sequelize.DATE,
     targetId: {
       type: Sequelize.INTEGER.UNSIGNED,
       allowNull: true,
@@ -81,6 +83,7 @@ Player.init(
 );
 
 Player.belongsTo(Game);
+Player.belongsTo(Team);
 Game.hasMany(Player);
 Team.hasMany(Player);
 
