@@ -3,17 +3,34 @@ import bodyParser from 'body-parser';
 import config from './config';
 import { ApolloServer } from 'apollo-server-express';
 import typeDefs from '../graphql/typeDefs';
+import resolvers from '#root/graphql/resolvers';
+import cors from 'cors';
 // A map of functions which return data for the schema.
 
 const apolloServer = new ApolloServer({
   // These will be defined for both new or existing servers
-  resolvers: {},
+  resolvers,
   typeDefs,
 });
 
 const app = express();
 
-apolloServer.applyMiddleware({ app, path: '/graphql' }); // app is from an existing express app. Mount Apollo middleware here. If no path is specified, it defaults to `/graphql`.
+// lol not sure if needed but lets have cors just in case
+app.use(
+  cors({
+    origin: (origin, cb) => cb(null, true),
+    credentials: true,
+    preflightContinue: true,
+    exposedHeaders: [
+      'Access-Control-Allow-Headers',
+      'Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
+      'X-Password-Expired',
+    ],
+    optionsSuccessStatus: 200,
+  }),
+);
+
+apolloServer.applyMiddleware({ app, path: '/graphql' });
 
 // Parse post data
 // parse application/x-www-form-urlencoded
@@ -30,7 +47,7 @@ app.use('/graphql', bodyParser.json());
 app.use('/api', require('../routes/api.routes'));
 
 app.all('*', (req, res) => {
-  res.status(404).json({ status: 'No Endpoint' });
+  res.status(404).json({ status: 'No Endpoint 🔥' });
 });
 
 // Open up and listen to port listed in config file

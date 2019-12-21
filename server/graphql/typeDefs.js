@@ -1,9 +1,14 @@
 import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
+  type Player {
+    id: ID!
+    name: String!
+    imageurl: String!
+  }
+
   type Query {
-    "A simple type for getting started!"
-    hello: String
+    players: [Player!]!
   }
 `;
 

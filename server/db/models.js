@@ -1,7 +1,5 @@
 import { Model, Sequelize } from 'sequelize';
-import sequelize from 'sequelize';
-
-console.log(Model);
+import sequelize from './connection';
 
 class Game extends Model {}
 Game.init(
@@ -23,8 +21,6 @@ Game.init(
     modelName: 'game',
   },
 );
-
-Game.init;
 
 class Team extends Model {}
 Team.init(
@@ -91,5 +87,5 @@ Player.belongsTo(Game);
 Player.belongsTo(Team);
 Game.hasMany(Player);
 Team.hasMany(Player);
-
-export default [Game, Team, Player];
+export default [Game, Team];
+// export default [Game, Team, Player];
