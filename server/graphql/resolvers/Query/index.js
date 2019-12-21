@@ -1,2 +1,5 @@
-import chefs from './chefs';
-export default chefs;
+import gamesResolver from './games';
+
+module.exports = {
+  games: gamesResolver,
+};
