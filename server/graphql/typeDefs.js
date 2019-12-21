@@ -1,14 +1,17 @@
 import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
+  type Game {
+    id: ID!
+    name: String!
+    players: [Player!]!
+  }
   type Player {
     id: ID!
     name: String!
-    imageurl: String!
   }
-
   type Query {
-    players: [Player!]!
+    games: [Game!]!
   }
 `;
 
