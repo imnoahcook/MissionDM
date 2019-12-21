@@ -1,4 +1,34 @@
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server';
+
+// const typeDefs = gql`
+//   type Game {
+//     id: ID!
+//     name: String!
+//     players: [Player!]!
+//   }
+//   type Player {
+//     id: ID!
+//     name: String!
+//   }
+//   type Query {
+//     games: [Game!]!
+//   }
+// `;
+
+// const typeDefs = gql`
+//   type Game {
+//     id: ID!
+//     name: String!
+//     players: [Player!]!
+//   }
+//   type Player {
+//     id: ID!
+//     name: String!
+//   }
+//   type Query {
+//     games: [Game!]
+//   }
+// `;
 
 const typeDefs = gql`
   type Game {
@@ -11,7 +41,7 @@ const typeDefs = gql`
     name: String!
   }
   type Query {
-    games: [Game!]!
+    games: String
   }
 `;
 

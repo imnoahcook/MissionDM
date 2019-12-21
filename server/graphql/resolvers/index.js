@@ -1,7 +1,5 @@
-import Player from './player';
-
+import Query from './Query';
 const resolvers = {
-  Player,
+  Query,
 };
-
 export default resolvers;

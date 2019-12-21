@@ -18,5 +18,3 @@ import '#root/db/models';
 //   if (err) return console.log(err);
 //   console.log('saved');
 // });
-
-console.log('Im done');
