@@ -1,6 +1,8 @@
 import { Model, Sequelize } from 'sequelize';
 import sequelize from 'sequelize';
 
+console.log(Model);
+
 class Game extends Model {}
 Game.init(
   {

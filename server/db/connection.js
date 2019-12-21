@@ -5,6 +5,8 @@ import models from './models';
 
 const DB_URL = accessEnv('DB_URL');
 
+console.log('@@ Got to here');
+
 const sequelize = new Sequelize(DB_URL, {
   dialectOptions: {
     charset: 'uft8',
