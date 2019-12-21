@@ -2,29 +2,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import config from './config';
 import { ApolloServer, gql } from 'apollo-server-express';
-// import typeDefs from '../graphql/typeDefs';
+import typeDefs from '../graphql/typeDefs';
 import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
-// A map of functions which return data for the schema.
 
-const typeDefs = gql`
-  type Query {
-    "A simple type for getting started!"
-    games: String
-  }
-`;
-
-// A map of functions which return data for the schema.
-const resolvers2 = {
-  Query: {
-    games: () => 'world',
-  },
-};
-// console.log(resolvers2);
-// console.log(resolvers);
-
-console.log(resolvers.Query.games());
-// console.log(resolvers;
 const apolloServer = new ApolloServer({
   // These will be defined for both new or existing servers
   typeDefs,

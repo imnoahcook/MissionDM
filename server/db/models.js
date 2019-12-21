@@ -87,5 +87,5 @@ Player.belongsTo(Game);
 Player.belongsTo(Team);
 Game.hasMany(Player);
 Team.hasMany(Player);
-export default [Game, Team];
-// export default [Game, Team, Player];
+// export default [Game, Team];
+export default [Game, Team, Player];
