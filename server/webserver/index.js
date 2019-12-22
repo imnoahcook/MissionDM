@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import config from './config';
-import { ApolloServer, gql } from 'apollo-server-express';
+import { ApolloServer } from 'apollo-server-express';
 import typeDefs from '../graphql/typeDefs';
 import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
@@ -14,7 +14,6 @@ const apolloServer = new ApolloServer({
 
 const app = express();
 
-// lol not sure if needed but lets have cors just in case
 app.use(
   cors({
     origin: (origin, cb) => cb(null, true),

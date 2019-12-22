@@ -1,13 +1,22 @@
 module.exports = {
-  presets: ['@babel/env'],
+  presets: [
+    [
+      'env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
   plugins: [
     [
-      "module-resolver",
+      'module-resolver',
       {
         alias: {
-          "#root": "./server"
-        }
-      }
-    ]
-  ]
+          '#root': './server',
+        },
+      },
+    ],
+  ],
 };
