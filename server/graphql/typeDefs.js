@@ -25,6 +25,10 @@ const typeDefs = gql`
     id: ID!
     name: String!
   }
+
+  type Mutation {
+    createTeam(name: String!): Game!
+  }
   type Query {
     games: [Game!]
   }
