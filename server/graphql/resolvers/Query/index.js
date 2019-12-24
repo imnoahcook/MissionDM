@@ -1,5 +1,1 @@
-import gamesResolver from './games';
-
-module.exports = {
-  games: gamesResolver,
-};
+export { default as games } from './games';
