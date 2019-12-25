@@ -72,10 +72,26 @@ Player.init(
       allowNull: false,
     },
     name: Sequelize.STRING,
-    imageurl: Sequelize.STRING,
-    admin: Sequelize.BOOLEAN,
-    killCount: Sequelize.INTEGER.UNSIGNED,
-    killTime: Sequelize.DATE,
+    imageurl: {
+      type: Sequelize.STRING,
+      defaultValue:
+        'https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg',
+    },
+    admin: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+    },
+    // killCount: Sequelize.INTEGER.UNSIGNED,
+    killCount: {
+      type: Sequelize.INTEGER.UNSIGNED,
+      defaultValue: 0,
+    },
+    // killTime: Sequelize.DATE,
+    killTime: {
+      type: Sequelize.DATE,
+      defaultValue: null,
+      allowNull: true,
+    },
     targetId: {
       type: Sequelize.INTEGER.UNSIGNED,
       allowNull: true,

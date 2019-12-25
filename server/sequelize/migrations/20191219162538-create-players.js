@@ -37,7 +37,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         type: DataTypes.INTEGER.UNSIGNED,
       },
       killTime: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.DATE,
       },
       imageurl: {
