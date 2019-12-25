@@ -52,6 +52,6 @@ app.listen(
   config.port,
   console.info.bind(
     console,
-    `🚀 SERVER: Launched backend on http://localhost:${config.port}`,
+    `SERVER: 🚀 Launched backend on http://localhost:${config.port}`,
   ),
 );
