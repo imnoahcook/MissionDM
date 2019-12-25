@@ -31,6 +31,14 @@ Team.init(
       autoIncrement: true,
     },
     name: Sequelize.STRING,
+    gameId: {
+      type: Sequelize.INTEGER.UNSIGNED,
+      references: {
+        model: Game,
+        key: 'id',
+      },
+      allowNull: false,
+    },
   },
   {
     sequelize,
@@ -85,6 +93,7 @@ Player.init(
 
 Player.belongsTo(Game);
 Player.belongsTo(Team);
+Team.belongsTo(Game);
 Game.hasMany(Player);
 Team.hasMany(Player);
 

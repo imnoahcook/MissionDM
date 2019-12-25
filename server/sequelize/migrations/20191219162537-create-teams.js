@@ -12,6 +12,14 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING,
       },
+      gameId: {
+        allowNull: false,
+        references: {
+          model: 'games',
+          key: 'id',
+        },
+        type: DataTypes.INTEGER.UNSIGNED,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
