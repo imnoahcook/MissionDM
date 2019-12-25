@@ -1,7 +1,7 @@
 import { Model, Sequelize } from 'sequelize';
 import sequelize from './connection';
 
-class Game extends Model {}
+export class Game extends Model {}
 Game.init(
   {
     id: {
@@ -22,7 +22,7 @@ Game.init(
   },
 );
 
-class Team extends Model {}
+export class Team extends Model {}
 Team.init(
   {
     id: {
@@ -46,7 +46,7 @@ Team.init(
   },
 );
 
-class Player extends Model {}
+export class Player extends Model {}
 Player.init(
   {
     id: {
@@ -94,8 +94,5 @@ Player.init(
 Player.belongsTo(Game);
 Player.belongsTo(Team);
 Team.belongsTo(Game);
-Game.hasMany(Team);
 Game.hasMany(Player);
 Team.hasMany(Player);
-
-export { Game, Team, Player };
