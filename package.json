@@ -1,61 +1,18 @@
 {
   "name": "missiondm",
   "version": "1.0.0",
-  "description": "MissionDM is an assassin like game!",
-  "main": "server/init/index.js",
-  "private": true,
-  "dependencies": {
-    "apollo-server": "^2.9.13",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "babel-watch": "^7.0.0",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "file-loader": "^4.2.0",
-    "graphql": "^14.5.8",
-    "mongoose": "^5.8.1",
-    "mysql2": "^2.0.2",
-    "parcel": "^1.12.4",
-    "path": "^0.12.7",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-router-dom": "^5.1.2",
-    "sequelize": "^5.21.3",
-    "sequelize-cli": "^5.5.1"
-  },
-  "devDependencies": {
-    "babel-preset-env": "^1.7.0",
-    "@babel/core": "^7.7.5",
-    "@babel/node": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.6.3",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "prettier": "^1.18.2",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "watch": "babel-watch server/index.js",
-    "start:dev": "babel-node server/index.js",
-    "docker:start": "docker start missiondm-db",
-    "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imnoahcook/MissionDM.git"
   },
-  "author": "imnoahcook",
-  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/imnoahcook/MissionDM/issues"
   },
-  "homepage": "https://github.com/imnoahcook/MissionDM#readme"
+  "author": "Noah Cook <imnoahcook@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
 }
