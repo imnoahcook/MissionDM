@@ -28,6 +28,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "watch": "babel-watch index.js",
+    "dev": "nodemon --exec babel-node index.js",
     "start:dev": "babel-node index.js",
     "docker:start": "docker start missiondm-db",
     "db:migrate": "sequelize db:migrate",
