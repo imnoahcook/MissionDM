@@ -7,7 +7,6 @@ import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
 
 const apolloServer = new ApolloServer({
-  // These will be defined for both new or existing servers
   typeDefs,
   resolvers,
 });
