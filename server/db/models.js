@@ -94,6 +94,7 @@ Player.init(
 Player.belongsTo(Game);
 Player.belongsTo(Team);
 Team.belongsTo(Game);
+Game.hasMany(Team);
 Game.hasMany(Player);
 Team.hasMany(Player);
 
