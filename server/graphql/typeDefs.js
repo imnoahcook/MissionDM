@@ -30,7 +30,7 @@ const typeDefs = gql`
     name: String!
   }
   type Mutation {
-    createTeam(name: String!, gameId: ID!): Game!
+    createTeam(name: String!, gameId: ID!): Team!
   }
   type Query {
     games: [Game!]
