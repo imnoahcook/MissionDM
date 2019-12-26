@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 // import MainRouter from 'routes/MainRouter';
 
+console.log('hello????');
+
 render(
   <>
     <GlobalStyle />
