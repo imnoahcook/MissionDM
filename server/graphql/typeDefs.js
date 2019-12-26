@@ -23,6 +23,7 @@ const typeDefs = gql`
   }
   type Query {
     games: [Game!]
+    player(playerId: ID): [Player]
   }
 `;
 
