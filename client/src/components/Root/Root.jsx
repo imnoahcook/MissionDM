@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -16,10 +16,17 @@ const Wrapper = styled.div`
 `;
 
 const Root = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const fbResponseCallback = response => {
+    console.log(response, "I'm in a different component now");
+    setLoggedIn(true);
+  };
+
+  console.log(loggedIn);
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      <LoginButton />
+      {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
     </Wrapper>
   );
 };
