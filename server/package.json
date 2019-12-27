@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "graphql": "^14.5.8",
     "mysql2": "^2.0.2",
+    "passport": "^0.4.1",
     "path": "^0.12.7",
     "sequelize": "^5.21.3",
     "sequelize-cli": "^5.5.1"

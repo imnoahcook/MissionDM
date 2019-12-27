@@ -22,7 +22,6 @@ const Root = () => {
     setLoggedIn(true);
   };
 
-  console.log(loggedIn);
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
