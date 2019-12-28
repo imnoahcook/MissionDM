@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Test from '../../pages/Test';
 
 // Components
 // import LoginButton from '../LoginButton';
@@ -26,7 +27,12 @@ const Root = () => {
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
+<<<<<<< HEAD
+      {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
+      <Test />
+=======
       <a href="http://localhost:3001/login/facebook">log in</a>
+>>>>>>> 3b2c8872cd2839001f78d48459a43fcfc7a5fe66
     </Wrapper>
   );
 };
