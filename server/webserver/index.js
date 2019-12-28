@@ -5,6 +5,8 @@ import { ApolloServer } from 'apollo-server-express';
 import typeDefs from '../graphql/typeDefs';
 import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
+import passport from 'passport';
+import '#root/passport';
 
 const apolloServer = new ApolloServer({
   typeDefs,
@@ -31,11 +33,11 @@ apolloServer.applyMiddleware({ app, path: '/graphql' });
 
 // Parse post data
 // parse application/x-www-form-urlencoded
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  }),
-);
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false,
+//   }),
+// );
 
 // parse application/json
 app.use('/graphql', bodyParser.json());
@@ -43,6 +45,44 @@ app.use('/graphql', bodyParser.json());
 // API Routess
 app.use('/api', require('../routes/api.routes'));
 
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(
+  require('express-session')({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/login', function(req, res) {
+  console.log('login render');
+  // res.render('login');
+});
+
+app.get('/login/facebook', passport.authenticate('facebook'));
+
+app.get(
+  '/return',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  (req, res) => {
+    res.redirect('/');
+  },
+);
+
+app.get(
+  '/profile',
+  require('connect-ensure-login').ensureLoggedIn(),
+  (req, res) => {
+    console.log('gud');
+  },
+);
 app.all('*', (req, res) => {
   res.status(404).json({ status: 'No Endpoint 🔥' });
 });

@@ -107,6 +107,55 @@ Player.init(
   },
 );
 
+export class User extends Model {}
+User.init(
+  {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: Sequelize.UUID,
+    },
+    email: {
+      allowNull: false,
+      type: Sequelize.STRING,
+      unique: true,
+    },
+  },
+  {
+    modelName: 'users',
+    sequelize,
+  },
+);
+
+export class UserSession extends Model {}
+UserSession.init(
+  {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: Sequelize.UUID,
+    },
+    userId: {
+      allowNull: false,
+      references: {
+        key: 'id',
+        model: 'users',
+      },
+      type: Sequelize.UUID,
+    },
+    expiresAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+  },
+  {
+    modelName: 'userSessions',
+    paranoid: false,
+    sequelize,
+    updatedAt: false,
+  },
+);
+
 Player.belongsTo(Game);
 Player.belongsTo(Team);
 Team.belongsTo(Game);

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 // Components
 import LoginButton from '../LoginButton';
@@ -14,6 +15,15 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 60rem;
 `;
+
+axios
+  .get('http://localhost:3001/login/facebook')
+  .then(response => {
+    console.log(response);
+  })
+  .catch(error => {
+    console.log(error);
+  });
 
 const Root = () => {
   const [loggedIn, setLoggedIn] = useState(false);
