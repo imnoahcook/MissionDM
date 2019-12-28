@@ -15,20 +15,19 @@ const apolloServer = new ApolloServer({
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: (origin, cb) => cb(null, true),
-//     credentials: true,
-//     preflightContinue: true,
-//     exposedHeaders: [
-//       'Access-Control-Allow-Headers',
-//       'Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
-//       'X-Password-Expired',
-//     ],
-//     optionsSuccessStatus: 200,
-//   }),
-// );
-app.use(cors());
+app.use(
+  cors({
+    origin: (origin, cb) => cb(null, true),
+    credentials: true,
+    preflightContinue: true,
+    exposedHeaders: [
+      'Access-Control-Allow-Headers',
+      'Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
+      'X-Password-Expired',
+    ],
+    optionsSuccessStatus: 200,
+  }),
+);
 
 apolloServer.applyMiddleware({ app, path: '/graphql' });
 
@@ -46,16 +45,16 @@ app.use('/graphql', bodyParser.json());
 // API Routess
 app.use('/api', require('../routes/api.routes'));
 
-app.use(require('morgan')('combined'));
+// app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(
-  require('express-session')({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-  }),
-);
+// app.use(require('body-parser').urlencoded({ extended: true }));
+// app.use(
+//   require('express-session')({
+//     secret: 'keyboard cat',
+//     resave: true,
+//     saveUninitialized: true,
+//   }),
+// );
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -66,15 +65,21 @@ app.get('/login', function(req, res) {
   console.log('login render');
 });
 
-app.get('/login/facebook', passport.authenticate('facebook'), () => {
-  console.log('you just got got');
-});
+app.get(
+  '/login/facebook',
+  passport.authenticate('facebook', {
+    scope: ['email'],
+  }),
+  () => {
+    console.log('you just got got');
+  },
+);
 
 app.get(
   '/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('http://localhost:3000/');
+    res.redirect('https://localhost:3000/');
   },
 );
 

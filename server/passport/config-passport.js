@@ -14,6 +14,7 @@ passport.use(
       clientID: process.env['FACEBOOK_CLIENT_ID'],
       clientSecret: process.env['FACEBOOK_CLIENT_SECRET'],
       callbackURL: '/return',
+      profileFields: ['id', 'displayName', 'email', 'first_name', 'picture'],
     },
     function(accessToken, refreshToken, profile, cb) {
       // In this example, the user's Facebook profile is supplied as the user
@@ -21,6 +22,9 @@ passport.use(
       // be associated with a user record in the application's database, which
       // allows for account linking and authentication with other identity
       // providers.
+      console.log(profile);
+      const { _json } = profile;
+      console.log(_json.picture);
       return cb(null, profile);
     },
   ),
