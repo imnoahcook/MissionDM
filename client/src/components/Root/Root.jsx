@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Test from '../../pages/Test';
 
 // Components
 import LoginButton from '../LoginButton';
@@ -36,6 +37,7 @@ const Root = () => {
     <Wrapper>
       <Heading>Mission DM</Heading>
       {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
+      <Test />
     </Wrapper>
   );
 };
