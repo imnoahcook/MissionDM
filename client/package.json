@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "watch": "parcel --port=3000 public/index.html"
+    "watch": "parcel --port=3000 public/index.html",
+    "watch:https": "parcel --port=3000 public/index.html --https"
   },
   "devDependencies": {
     "parcel-bundler": "~1.12.4"

@@ -31,5 +31,5 @@ const Root = () => {
   );
 };
 
-// {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
+// {loggedIn || <LoginButton sponseCallback={fbResponseCallback} />}
 export default Root;
