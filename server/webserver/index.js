@@ -15,19 +15,20 @@ const apolloServer = new ApolloServer({
 
 const app = express();
 
-app.use(
-  cors({
-    origin: (origin, cb) => cb(null, true),
-    credentials: true,
-    preflightContinue: true,
-    exposedHeaders: [
-      'Access-Control-Allow-Headers',
-      'Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
-      'X-Password-Expired',
-    ],
-    optionsSuccessStatus: 200,
-  }),
-);
+// app.use(
+//   cors({
+//     origin: (origin, cb) => cb(null, true),
+//     credentials: true,
+//     preflightContinue: true,
+//     exposedHeaders: [
+//       'Access-Control-Allow-Headers',
+//       'Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept',
+//       'X-Password-Expired',
+//     ],
+//     optionsSuccessStatus: 200,
+//   }),
+// );
+app.use(cors());
 
 apolloServer.applyMiddleware({ app, path: '/graphql' });
 
@@ -63,16 +64,17 @@ app.use(passport.session());
 
 app.get('/login', function(req, res) {
   console.log('login render');
-  // res.render('login');
 });
 
-app.get('/login/facebook', passport.authenticate('facebook'));
+app.get('/login/facebook', passport.authenticate('facebook'), () => {
+  console.log('you just got got');
+});
 
 app.get(
   '/return',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('/');
+    res.redirect('http://localhost:3000/');
   },
 );
 

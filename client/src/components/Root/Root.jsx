@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 // Components
-import LoginButton from '../LoginButton';
+// import LoginButton from '../LoginButton';
 
 const Heading = styled.strong`
   display: block;
@@ -16,15 +16,6 @@ const Wrapper = styled.div`
   width: 60rem;
 `;
 
-axios
-  .get('http://localhost:3001/login/facebook')
-  .then(response => {
-    console.log(response);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
 const Root = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const fbResponseCallback = response => {
@@ -35,9 +26,10 @@ const Root = () => {
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
+      <a href="http://localhost:3001/login/facebook">log in</a>
     </Wrapper>
   );
 };
 
+// {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
 export default Root;
