@@ -7,21 +7,17 @@ const USER_SESSION_EXPIRY_HOURS = 1;
 
 const setupRoutes = app => {
   app.post('/sessions', async (req, res, next) => {
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.fbid) {
       return next(new Error('Invalid body!'));
     }
 
     try {
       const user = await User.findOne({
         attributes: {},
-        where: { email: req.body.email },
+        where: { fbid: req.body.fbid },
       });
 
-      if (!user) return next(new Error('Invalid email!'));
-
-      if (!passwordCompareSync(req.body.password, user.passwordHash)) {
-        return next(new Error('Incorrect password!'));
-      }
+      if (!user) return next(new Error('Invalid fbid!'));
 
       const expiresAt = addHours(new Date(), USER_SESSION_EXPIRY_HOURS);
 
@@ -66,15 +62,14 @@ const setupRoutes = app => {
   });
 
   app.post('/users', async (req, res, next) => {
-    if (!req.body.email || !req.body.password) {
+    if (!req.body.fbid) {
       return next(new Error('Invalid body!'));
     }
 
     try {
       const newUser = await User.create({
-        email: req.body.email,
+        fbid: req.body.fbid,
         id: generateUUID(),
-        
       });
 
       return res.json(newUser);
