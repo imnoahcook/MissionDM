@@ -5,13 +5,19 @@ import { ApolloServer } from 'apollo-server-express';
 import typeDefs from '../graphql/typeDefs';
 import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
+
+console.log(cookieParser);
 
 const apolloServer = new ApolloServer({
+  context: a => a,
   typeDefs,
   resolvers,
 });
 
 const app = express();
+
+app.use(cookieParser());
 
 app.use(
   cors({
