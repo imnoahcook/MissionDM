@@ -81,12 +81,10 @@ Player.init(
       type: Sequelize.BOOLEAN,
       defaultValue: false,
     },
-    // killCount: Sequelize.INTEGER.UNSIGNED,
     killCount: {
       type: Sequelize.INTEGER.UNSIGNED,
       defaultValue: 0,
     },
-    // killTime: Sequelize.DATE,
     killTime: {
       type: Sequelize.DATE,
       defaultValue: null,
@@ -115,7 +113,7 @@ User.init(
       primaryKey: true,
       type: Sequelize.UUID,
     },
-    email: {
+    fbid: {
       allowNull: false,
       type: Sequelize.STRING,
       unique: true,
@@ -155,9 +153,3 @@ UserSession.init(
     updatedAt: false,
   },
 );
-
-Player.belongsTo(Game);
-Player.belongsTo(Team);
-Team.belongsTo(Game);
-Game.hasMany(Player);
-Team.hasMany(Player);

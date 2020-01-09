@@ -7,7 +7,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         primaryKey: true,
         type: DataTypes.UUID,
       },
-      email: {
+      fbid: {
         allowNull: false,
         type: DataTypes.STRING,
         unique: true,
