@@ -6,8 +6,7 @@ import typeDefs from '../graphql/typeDefs';
 import resolvers from '#root/graphql/resolvers';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-
-console.log(cookieParser);
+import injectSession from './injectSession';
 
 const apolloServer = new ApolloServer({
   context: a => a,
@@ -18,6 +17,7 @@ const apolloServer = new ApolloServer({
 const app = express();
 
 app.use(cookieParser());
+app.use(injectSession);
 
 app.use(
   cors({
