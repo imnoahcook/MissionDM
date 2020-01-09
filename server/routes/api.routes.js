@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/test', async (req, res, next) => {
   try {
     console.log('test worked');
-    passport.authenticate('facebook');
+    // passport.authenticate('facebook');
 
     return res.end();
   } catch (e) {

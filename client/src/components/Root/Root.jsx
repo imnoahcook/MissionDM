@@ -22,17 +22,15 @@ const Root = () => {
   const fbResponseCallback = response => {
     console.log(response, "I'm in a different component now");
     setLoggedIn(true);
+
+    axios.post('localhost:3001/api/login', response);
   };
 
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-<<<<<<< HEAD
       {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
       <Test />
-=======
-      <a href="http://localhost:3001/login/facebook">log in</a>
->>>>>>> 3b2c8872cd2839001f78d48459a43fcfc7a5fe66
     </Wrapper>
   );
 };

@@ -41,6 +41,6 @@
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo"
   },
-  "author": "imnoahcook",
+  "author": "Noah Cook <imnoahcook@gmail.com>",
   "license": "UNLICENSED"
 }
