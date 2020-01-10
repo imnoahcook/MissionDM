@@ -28,10 +28,6 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: true,
         type: DataTypes.INTEGER.UNSIGNED,
       },
-      name: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
       killCount: {
         allowNull: false,
         type: DataTypes.INTEGER.UNSIGNED,
@@ -39,10 +35,6 @@ module.exports.up = (queryInterface, DataTypes) => {
       killTime: {
         allowNull: true,
         type: DataTypes.DATE,
-      },
-      imageurl: {
-        allowNull: false,
-        type: DataTypes.STRING,
       },
       admin: {
         allowNull: false,

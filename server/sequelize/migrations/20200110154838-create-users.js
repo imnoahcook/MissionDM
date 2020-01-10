@@ -12,6 +12,14 @@ module.exports.up = (queryInterface, DataTypes) => {
         type: DataTypes.STRING,
         unique: true,
       },
+      name: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      imageurl: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,

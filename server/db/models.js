@@ -71,12 +71,6 @@ Player.init(
       },
       allowNull: false,
     },
-    name: Sequelize.STRING,
-    imageurl: {
-      type: Sequelize.STRING,
-      defaultValue:
-        'https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg',
-    },
     admin: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
@@ -117,6 +111,12 @@ User.init(
       allowNull: false,
       type: Sequelize.STRING,
       unique: true,
+    },
+    name: Sequelize.STRING,
+    imageurl: {
+      type: Sequelize.STRING,
+      defaultValue:
+        'https://www.guidedogs.org/wp-content/uploads/2019/11/website-donate-mobile.jpg',
     },
   },
   {
