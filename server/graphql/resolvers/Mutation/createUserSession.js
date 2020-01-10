@@ -10,7 +10,7 @@ const createUserSessionResolver = async (obj, { fbid }, context) => {
     where: { fbid: fbid },
   });
 
-  if (!user) return new Error('Invalid fbid!');
+  if (!user) await User.create({ id: generateUUID(), fbid });
 
   const expiresAt = addHours(new Date(), USER_SESSION_EXPIRY_HOURS);
 

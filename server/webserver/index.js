@@ -27,18 +27,14 @@ app.use(
 
 app.use(injectSession);
 
-apolloServer.applyMiddleware({ app, path: '/graphql' });
+apolloServer.applyMiddleware({ app, cors: false, path: '/graphql' });
 
-app.use('/graphql', bodyParser.json());
-
-// API Routes
 app.use('/api', require('../routes/api.routes'));
 
 app.all('*', (req, res) => {
   res.status(404).json({ status: 'No Endpoint 🔥' });
 });
 
-// Open up and listen to port listed in config file
 app.listen(
   config.port,
   console.info.bind(
