@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import graphqlClient from './api/graphql';
 import Root from './components/Root';
 
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import * as theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
@@ -16,8 +16,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 render(
   <ApolloProvider client={graphqlClient}>
-    <GlobalStyle />
-    <Root />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Root />
+    </ThemeProvider>
   </ApolloProvider>,
   document.getElementById('root'),
 );

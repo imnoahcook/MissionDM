@@ -5,7 +5,7 @@ const LoginButton = props => {
   return (
     <FacebookLogin
       appId="1129540520415157"
-      autoLoad={true}
+      autoLoad={false}
       fields="name,email,picture"
       callback={props.responseCallback}
     />

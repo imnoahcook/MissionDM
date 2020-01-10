@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import Test from '../../pages/Test';
 
 // Components
-// import LoginButton from '../LoginButton';
+import Login from './Login';
 
 const Heading = styled.strong`
   display: block;
@@ -23,14 +22,13 @@ const Root = () => {
     console.log(response, "I'm in a different component now");
     setLoggedIn(true);
 
-    axios.post('localhost:3001/api/login', response);
+    // axios.post('localhost:3001/api/login', response);
   };
 
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      {loggedIn || <LoginButton responseCallback={fbResponseCallback} />}
-      <Test />
+      <Login />
     </Wrapper>
   );
 };
