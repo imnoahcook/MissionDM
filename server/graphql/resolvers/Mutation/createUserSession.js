@@ -5,7 +5,6 @@ import { addHours } from 'date-fns';
 const USER_SESSION_EXPIRY_HOURS = 1;
 
 const createUserSessionResolver = async (obj, { fbid }, context) => {
-  // console.log(context);
   const user = await User.findOne({
     attributes: {},
     where: { fbid: fbid },
