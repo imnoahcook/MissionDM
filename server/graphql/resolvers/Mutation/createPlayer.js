@@ -1,7 +1,7 @@
 import { Player } from '#root/db/models';
 
-const createPlayerResolver = (context, { name, gameId, teamId }) => {
-  return Player.create({ name, gameId, teamId });
+const createPlayerResolver = (context, { gameId, teamId }) => {
+  return Player.create({ gameId, teamId });
 };
 
 export default createPlayerResolver;

@@ -12,7 +12,6 @@ const typeDefs = gql`
 
   type Player {
     id: ID!
-    name: String!
     team: String
   }
 
@@ -36,7 +35,7 @@ const typeDefs = gql`
   type Mutation {
     createTeam(name: String!, gameId: ID!): Team!
     createGame(name: String!, password: String, teams: Boolean!): Game!
-    createPlayer(name: String!, gameId: ID!, teamId: ID!): Player!
+    createPlayer(gameId: ID!, teamId: ID!): Player!
     createUser(fbid: String!): User!
     createUserSession(fbid: String!): UserSession!
     deleteUserSession(sessionId: ID!): Boolean!
