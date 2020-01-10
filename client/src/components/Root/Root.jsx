@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Components
 import Login from './Login';
+import Target from './Target';
 
 const Heading = styled.strong`
   display: block;
@@ -28,7 +29,11 @@ const Root = () => {
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      <Login />
+      {/* <Login /> */}
+      <Target
+        name="John Smith"
+        image="https://www.generalatlantic.com/wp-content/uploads/2017/11/square-image-jared-cohen-general-atlantic-headshot.jpg"
+      />
     </Wrapper>
   );
 };
