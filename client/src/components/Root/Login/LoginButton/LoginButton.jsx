@@ -7,9 +7,10 @@ const LoginButton = props => {
       appId="1129540520415157"
       autoLoad={false}
       fields="name,email,picture"
-      callback={props.responseCallback}
+      callback={props.callback}
     />
   );
 };
+// callback keys are id, name, picture, email,
 
 export default LoginButton;

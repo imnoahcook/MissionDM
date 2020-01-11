@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
@@ -14,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: Roboto, sans-serif;
   }
 `;
+
 render(
   <ApolloProvider client={graphqlClient}>
     <ThemeProvider theme={theme}>

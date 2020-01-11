@@ -22,6 +22,8 @@ const typeDefs = gql`
 
   type User {
     fbid: String!
+    name: String!
+    imageurl: String!
     id: ID!
   }
 
@@ -37,7 +39,7 @@ const typeDefs = gql`
     createGame(name: String!, password: String, teams: Boolean!): Game!
     createPlayer(gameId: ID!, teamId: ID!): Player!
     createUser(fbid: String!): User!
-    createUserSession(fbid: String!): UserSession!
+    createUserSession(fbid: String!, name: String!, imageurl: String!): UserSession!
     deleteUserSession(sessionId: ID!): Boolean!
   }
 

@@ -4,13 +4,18 @@ import { addHours } from 'date-fns';
 
 const USER_SESSION_EXPIRY_HOURS = 1;
 
-const createUserSessionResolver = async (obj, { fbid }, context) => {
-  const user = await User.findOne({
+const createUserSessionResolver = async (
+  obj,
+  { fbid, name, imageurl },
+  context,
+) => {
+  let user = await User.findOne({
     attributes: {},
     where: { fbid: fbid },
   });
 
-  if (!user) await User.create({ id: generateUUID(), fbid });
+  if (!user)
+    user = await User.create({ id: generateUUID(), fbid, name, imageurl });
 
   const expiresAt = addHours(new Date(), USER_SESSION_EXPIRY_HOURS);
 

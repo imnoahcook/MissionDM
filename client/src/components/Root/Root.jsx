@@ -18,18 +18,10 @@ const Wrapper = styled.div`
 `;
 
 const Root = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const fbResponseCallback = response => {
-    console.log(response, "I'm in a different component now");
-    setLoggedIn(true);
-
-    // axios.post('localhost:3001/api/login', response);
-  };
-
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      {/* <Login /> */}
+      <Login />
       <Target
         name="John Smith"
         image="https://www.generalatlantic.com/wp-content/uploads/2017/11/square-image-jared-cohen-general-atlantic-headshot.jpg"
