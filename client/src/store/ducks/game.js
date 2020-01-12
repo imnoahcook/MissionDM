@@ -4,13 +4,13 @@ const ADD = 'game/ADD';
 
 const DEFAULT_STATE = [];
 
-const update = (state, mutations) => Object.assign({}, state, mutations);
+// const update = (state, mutations) => Object.assign({}, state, mutations);
 
 const gameReducer = (state = DEFAULT_STATE, action = {}) => {
   switch (action.type) {
     case ADD:
-      state = update(state, { value: state.value + 1 })
-      break
+      state = [...state].append(action.game);
+      break;
     case CLEAR:
       return null;
   }
@@ -20,10 +20,10 @@ const gameReducer = (state = DEFAULT_STATE, action = {}) => {
 export default gameReducer;
 
 // action creators
-export const addSession = game => {
+export const addGame = game => {
   return { game, type: ADD };
 };
 
-export const clearSession = () => {
+export const clearGame = () => {
   return { type: CLEAR };
 };
