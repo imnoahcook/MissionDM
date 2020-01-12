@@ -5,7 +5,7 @@ const words = fs
   .toString()
   .split('\n');
 
-const FILE_LENGTH = 2048;
+const FILE_LENGTH = words.length;
 
 const generatePassword = () => {
   const word1 = words[Math.floor(Math.random() * FILE_LENGTH)];
