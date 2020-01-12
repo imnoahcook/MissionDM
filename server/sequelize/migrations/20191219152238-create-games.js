@@ -20,6 +20,10 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.BOOLEAN,
       },
+      isRunning: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
