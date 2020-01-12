@@ -53,7 +53,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         type: DataTypes.BOOLEAN,
       },
       password: {
-        allowNull: true,
+        allowNull: false,
         type: DataTypes.STRING,
       },
       createdAt: {

@@ -102,7 +102,7 @@ Player.init(
     },
     password: {
       type: Sequelize.STRING,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
