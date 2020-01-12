@@ -1,4 +1,4 @@
-import { Player } from '#root/db/models';
+import { Player, User } from '#root/db/models';
 
 const targetResolver = async (obj, { gameId }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
