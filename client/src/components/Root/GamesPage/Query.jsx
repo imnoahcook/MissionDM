@@ -13,7 +13,7 @@ const query = gql`
 
 const Query = () => {
   const { data, loading } = useQuery(query);
-  console.log('test');
+
   return (
     <>
       <p>Games you are a part of:</p>
