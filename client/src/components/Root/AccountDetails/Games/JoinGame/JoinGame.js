@@ -1,6 +1,8 @@
 import React from 'react';
 import useForm from 'react-hook-form';
 import styled from 'styled-components';
+import { useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 import TextInput from '#root/components/shared/TextInput';
 
@@ -22,14 +24,24 @@ const JoinButton = styled.button`
   margin-top: 0.5rem;
 `;
 
+const mutation = gql`
+  mutation($password: String!) {
+    createPlayer(password: $password) {
+      id
+    }
+  }
+`;
+
 const JoinGame = () => {
   const {
     formState: { isSubmitting },
     handleSubmit,
     register,
   } = useForm();
-  const onsubmit = handleSubmit(async () => {
-    console.log('yo');
+  const [joinGame] = useMutation(mutation);
+  const onSubmit = handleSubmit(async ({ password }) => {
+    const result = await joinGame({ variables: { password } });
+    console.log(result);
   });
   return (
     <form onSubmit={handleSubmit}>
@@ -37,7 +49,7 @@ const JoinGame = () => {
         <LabelText>Game Password</LabelText>
         <TextInput
           disabled={isSubmitting}
-          name="gamepassword"
+          name="password"
           type="text"
           ref={register}
         />
