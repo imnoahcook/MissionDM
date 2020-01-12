@@ -15,6 +15,11 @@ Game.init(
       type: Sequelize.STRING,
       allowNull: true,
     },
+    isRunning: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     sequelize,

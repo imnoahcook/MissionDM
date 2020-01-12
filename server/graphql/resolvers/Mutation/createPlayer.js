@@ -4,7 +4,7 @@ import { player } from '../Query';
 
 const createPlayerResolver = async (_, { password }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
-  if (!userId) return 'not logged in or invalid user session';
+  if (!userId) throw new Error('not logged in or invalid user session');
 
   const game = await Game.findOne({
     where: { password: password },
