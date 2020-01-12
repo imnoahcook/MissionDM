@@ -48,7 +48,7 @@ const typeDefs = gql`
 
   type Query {
     games: [Game!]!
-    target: User
+    target(gameId: ID): User
     player(playerId: ID): [Player]
     userSession(me: Boolean!): UserSession
   }
