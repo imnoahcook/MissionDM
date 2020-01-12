@@ -21,7 +21,6 @@ const typeDefs = gql`
   }
 
   type User {
-    fbid: String!
     name: String!
     imageurl: String!
     id: ID!
@@ -48,7 +47,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    games: [Game!]
+    games: [Game!]!
     player(playerId: ID): [Player]
     userSession(me: Boolean!): UserSession
   }
