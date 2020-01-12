@@ -5,8 +5,7 @@ import { useDispatch } from 'react-redux';
 import graphqlClient from '#root/api/graphql';
 import { setSession } from '#root/store/ducks/session';
 // Components
-import Login from './Login';
-import Target from './Target';
+import AccountDetails from './AccountDetails';
 
 const Heading = styled.strong`
   display: block;
@@ -31,25 +30,24 @@ const query = gql`
 `;
 
 const Root = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     graphqlClient.query({ query }).then(({ data }) => {
       if (data.userSession) {
-        dispatchEvent(sesSession(data.userSession));
+        dispatch(setSession(data.userSession));
       }
       setInitialized(true);
     });
-  });
+  }, []);
+
+  if (!initialized) return 'Loading...';
+
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      <Login />
-      <Target
-        name="John Smith"
-        image="https://www.generalatlantic.com/wp-content/uploads/2017/11/square-image-jared-cohen-general-atlantic-headshot.jpg"
-      />
+      <AccountDetails />
     </Wrapper>
   );
 };
