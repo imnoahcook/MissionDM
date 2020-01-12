@@ -6,10 +6,10 @@ const words = fs
   .split('\n');
 
 const generatePassword = () => {
-  const word1 = Math.floor(Math.random() * 2048);
-  const word2 = Math.floor(Math.random() * 2048);
+  const word1 = words[Math.floor(Math.random() * 2048)];
+  const word2 = words[Math.floor(Math.random() * 2048)];
 
-  return words[word1] + ' ' + words[word2];
+  return word1 + ' ' + word2;
 };
 
 export default generatePassword;
