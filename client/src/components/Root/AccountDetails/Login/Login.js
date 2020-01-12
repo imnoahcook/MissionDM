@@ -24,12 +24,13 @@ const Login = () => {
   const loginCallback = async res => {
     console.log(res);
     const { id, name, picture } = res;
-
+    const photoURL = 'https://graph.facebook.com/' + id.toString() + '/picture?type=large';
+    console.log(photoURL);
     const result = await createUserSession({
       variables: {
         fbid: id,
         name,
-        imageurl: picture.data.url,
+        imageurl: photoURL,
       },
     });
     if (!result.data.createUserSession) return;
@@ -38,4 +39,5 @@ const Login = () => {
 
   return <LoginButton callback={loginCallback} />;
 };
+
 export default Login;
