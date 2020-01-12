@@ -15,8 +15,8 @@ const createPlayerResolver = async (_, { password }, context) => {
   const passpharse = generatePassword();
 
   const exists = Player.count({
-    where: { userId: userId },
-  }).then(count => count === 0);
+    where: { userId: userId, gameId: game.id },
+  }).then(count => count !== 0);
 
   if (exists) throw new Error('player already exists in database');
 
