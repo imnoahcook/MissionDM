@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const words = fs
   .readFileSync('./helpers/generatePassword/wordlist')
