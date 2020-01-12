@@ -4,7 +4,7 @@ const gamesResolver = async (obj, _, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
   console.log(userId);
   const players = await Player.findAll({
-    where: { id: userId },
+    where: { userId: userId },
   });
 
   if (!players) return 'invalid user ID';
