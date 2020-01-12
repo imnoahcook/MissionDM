@@ -7,6 +7,8 @@ import { setSession } from '#root/store/ducks/session';
 // Components
 import AccountDetails from './AccountDetails';
 
+import Query from './GraphqlTest';
+
 const Heading = styled.strong`
   display: block;
   font-size: 2rem;
@@ -48,6 +50,7 @@ const Root = () => {
     <Wrapper>
       <Heading>Mission DM</Heading>
       <AccountDetails />
+      <Query />
     </Wrapper>
   );
 };

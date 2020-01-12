@@ -16,7 +16,7 @@ const Query = () => {
   console.log('test');
   return (
     <div>
-      <p>Query test:</p>
+      <p>Games you are a part of:</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
