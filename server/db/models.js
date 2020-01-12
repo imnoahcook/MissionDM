@@ -9,11 +9,15 @@ Game.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: Sequelize.STRING,
+    name: {
+      type: Sequelize.STRING,
+      unique: true,
+    },
     teams: Sequelize.BOOLEAN,
     password: {
       type: Sequelize.STRING,
       allowNull: true,
+      unique: true,
     },
     isRunning: {
       type: Sequelize.BOOLEAN,

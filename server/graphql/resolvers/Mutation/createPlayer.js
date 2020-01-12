@@ -1,6 +1,5 @@
 import { Player, Game } from '#root/db/models';
 import generatePassword from '#root/helpers/generatePassword';
-import { player } from '../Query';
 
 const createPlayerResolver = async (_, { password }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
