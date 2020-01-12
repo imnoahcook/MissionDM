@@ -12,13 +12,13 @@ const createPlayerResolver = async (_, { password }, context) => {
 
   if (!game) throw new Error('invalid game password');
 
-  const passpharse = generatePassword();
-
   const exists = Player.count({
     where: { userId: userId, gameId: game.id },
   }).then(count => count !== 0);
 
   if (exists) throw new Error('player already exists in database');
+
+  const passpharse = generatePassword();
 
   return Player.create({ userId, gameId: game.id, password: passpharse });
 };
