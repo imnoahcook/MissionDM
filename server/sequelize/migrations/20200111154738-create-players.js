@@ -24,6 +24,14 @@ module.exports.up = (queryInterface, DataTypes) => {
         },
         type: DataTypes.INTEGER.UNSIGNED,
       },
+      userId: {
+        allowNull: false,
+        references: {
+          key: 'id',
+          model: 'users',
+        },
+        type: DataTypes.UUID,
+      },
       targetId: {
         allowNull: true,
         type: DataTypes.INTEGER.UNSIGNED,

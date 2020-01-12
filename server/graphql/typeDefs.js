@@ -48,6 +48,7 @@ const typeDefs = gql`
 
   type Query {
     games: [Game!]!
+    target: User
     player(playerId: ID): [Player]
     userSession(me: Boolean!): UserSession
   }

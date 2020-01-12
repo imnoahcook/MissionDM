@@ -54,6 +54,14 @@ Player.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    userId: {
+      allowNull: false,
+      references: {
+        key: 'id',
+        model: 'users',
+      },
+      type: Sequelize.UUID,
+    },
     gameId: {
       type: Sequelize.INTEGER.UNSIGNED,
       references: {
@@ -64,7 +72,6 @@ Player.init(
     },
     teamId: {
       type: Sequelize.INTEGER.UNSIGNED,
-
       references: {
         model: Team,
         key: 'id',
