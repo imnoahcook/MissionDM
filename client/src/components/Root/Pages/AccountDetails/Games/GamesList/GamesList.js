@@ -3,12 +3,13 @@ import { useSelector } from 'react-redux';
 
 import GameButton from './GameButton';
 
-const GamesList = props => {
-  const session = useSelector(state => state.games);
+const GamesList = () => {
+  const games = useSelector(state => state.games);
 
+  if (!games) return 'Loading...';
   return (
     <>
-      {props.games.map(game => (
+      {games.map(game => (
         <GameButton key={game.id} {...game} />
       ))}
     </>
