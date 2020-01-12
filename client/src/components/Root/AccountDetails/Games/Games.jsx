@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/react-hooks';
 import React from 'react';
 import gql from 'graphql-tag';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import GamesList from './GamesList';
 const query = gql`
   {
     games {
@@ -11,15 +11,17 @@ const query = gql`
   }
 `;
 
-const Query = () => {
+const Games = () => {
   const { data, loading } = useQuery(query);
+
+  if (loading) return 'Loading...';
 
   return (
     <>
       <p>Games you are a part of:</p>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <GamesList games={data} />
     </>
   );
 };
 
-export default Query;
+export default Games;

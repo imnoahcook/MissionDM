@@ -48,10 +48,8 @@ const Root = () => {
     <Wrapper>
       <Heading>Mission DM</Heading>
       <AccountDetails />
-      <Query />
     </Wrapper>
   );
 };
 
-// {loggedIn || <LoginButton sponseCallback={fbResponseCallback} />}
 export default Root;
