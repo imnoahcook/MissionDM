@@ -15,10 +15,10 @@ const Query = () => {
   const { data, loading } = useQuery(query);
   console.log('test');
   return (
-    <div>
+    <>
       <p>Games you are a part of:</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    </>
   );
 };
 
