@@ -1,6 +1,7 @@
-import { useQuery } from '@apollo/react-hooks';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import gql from 'graphql-tag';
+import graphqlClient from '#root/api/graphql';
+import { useDispatch } from 'react-redux';
 
 import { addGame } from '#root/store/ducks/game';
 import GamesList from './GamesList';
@@ -15,6 +16,9 @@ const query = gql`
 `;
 
 const Games = () => {
+  const dispatch = useDispatch();
+
+  const [initialized, setInitialized] = useState(false);
   useEffect(() => {
     graphqlClient.query({ query }).then(({ data }) => {
       if (data.games) {
@@ -24,7 +28,7 @@ const Games = () => {
     });
   }, []);
 
-  if (loading) return 'Loading...';
+  if (!initialized) return 'Loading...';
 
   return (
     <>
