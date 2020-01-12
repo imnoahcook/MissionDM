@@ -5,7 +5,7 @@ import AccountDetails from './AccountDetails';
 const Pages = () => {
   return (
     <Router>
-      <Router exact path='/' component={AccountDetails}/>
+      <Route exact path='/' component={AccountDetails}/>
       <Route path='/:gameId' children={<GameInfo />} />
     </Router>
   );
