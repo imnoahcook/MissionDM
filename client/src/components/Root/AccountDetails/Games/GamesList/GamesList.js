@@ -2,9 +2,9 @@ import React from 'react';
 
 const GamesList = props => {
   console.log(props);
-  return '';
+  console.log(props.games);
   return props.games.map(game => {
-    <GameButton />;
+    <GameButton game={game} />;
   });
 };
 

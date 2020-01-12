@@ -6,6 +6,7 @@ import GamesList from './GamesList';
 const query = gql`
   {
     games {
+      id
       name
     }
   }
@@ -19,7 +20,7 @@ const Games = () => {
   return (
     <>
       <p>Games you are a part of:</p>
-      <GamesList games={data} />
+      <GamesList {...data} />
     </>
   );
 };
