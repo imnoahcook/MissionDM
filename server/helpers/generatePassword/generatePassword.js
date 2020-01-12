@@ -5,9 +5,11 @@ const words = fs
   .toString()
   .split('\n');
 
+const FILE_LENGTH = 2048;
+
 const generatePassword = () => {
-  const word1 = words[Math.floor(Math.random() * 2048)];
-  const word2 = words[Math.floor(Math.random() * 2048)];
+  const word1 = words[Math.floor(Math.random() * FILE_LENGTH)];
+  const word2 = words[Math.floor(Math.random() * FILE_LENGTH)];
 
   return word1 + ' ' + word2;
 };
