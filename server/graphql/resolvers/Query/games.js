@@ -1,10 +1,18 @@
 import { Game, Player } from '#root/db/models';
 
-const gamesResolver = (obj, _, context) => {
+const gamesResolver = async (obj, _, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
+  console.log(userId);
+  const players = await Player.findAll({
+    where: { id: userId },
+  });
 
-  const players = Player.findAll({});
-  return Game.findAll();
+  if (!players) return 'invalid user ID';
+
+  const gameIds = players.map(player => player.gameId);
+  return Game.findAll({
+    where: { id: gameIds },
+  });
 };
 
 export default gamesResolver;
