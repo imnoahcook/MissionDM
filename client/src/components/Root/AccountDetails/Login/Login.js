@@ -1,6 +1,8 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { useDispatch } from 'react-redux';
+import { setSession } from '#root/store/ducks/session';
 
 import LoginButton from './LoginButton';
 
@@ -16,6 +18,7 @@ const mutation = gql`
 `;
 
 const Login = () => {
+  const dispatch = useDispatch();
   const [createUserSession] = useMutation(mutation);
 
   const loginCallback = async res => {
@@ -29,7 +32,8 @@ const Login = () => {
         imageurl: picture.data.url,
       },
     });
-    console.log(result);
+    if (!result.data.createUserSession) return;
+    dispatch(setSession(result.data.createUserSession.id));
   };
 
   return <LoginButton callback={loginCallback} />;
