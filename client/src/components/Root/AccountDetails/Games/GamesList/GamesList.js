@@ -1,8 +1,8 @@
 import React from 'react';
 
+import GameButton from './GameButton';
+
 const GamesList = props => {
-  console.log(props);
-  console.log(props.games);
   return props.games.map(game => {
     <GameButton game={game} />;
   });
