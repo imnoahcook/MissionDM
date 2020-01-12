@@ -10,9 +10,13 @@ const targetResolver = async (obj, { gameId }, context) => {
 
   if (!targetId) return 'Invalid target Id';
 
-  return Player.findOne({
+  const targetPlayer = await Player.findOne({
     where: { id: targetId },
   });
+
+  if (!targetPlayer) return 'Invalid Player Id';
+
+  return User.findByPk(targetPlayer.userId);
 };
 
 export default targetResolver;
