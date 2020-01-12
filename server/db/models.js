@@ -76,7 +76,7 @@ Player.init(
         model: Team,
         key: 'id',
       },
-      allowNull: false,
+      allowNull: true,
     },
     admin: {
       type: Sequelize.BOOLEAN,

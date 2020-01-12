@@ -17,7 +17,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         type: DataTypes.INTEGER.UNSIGNED,
       },
       teamId: {
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'teams',
           key: 'id',
