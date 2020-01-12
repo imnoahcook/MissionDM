@@ -11,8 +11,6 @@ const injectSession = async (req, res, next) => {
     } catch (e) {
       return next(e);
     }
-  } else {
-    // console.log('no cookie');
   }
 
   return next();

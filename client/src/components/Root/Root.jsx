@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -18,6 +18,11 @@ const Wrapper = styled.div`
 `;
 
 const Root = () => {
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    
+  })
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>

@@ -9,7 +9,6 @@ const mutation = gql`
     createUserSession(fbid: $fbid, name: $name, imageurl: $imageurl) {
       id
       user {
-        fbid
         id
       }
     }
