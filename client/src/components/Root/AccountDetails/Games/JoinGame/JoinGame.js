@@ -44,7 +44,7 @@ const JoinGame = () => {
     console.log(result);
   });
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <Label>
         <LabelText>Game Password</LabelText>
         <TextInput

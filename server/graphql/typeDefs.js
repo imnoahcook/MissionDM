@@ -13,6 +13,7 @@ const typeDefs = gql`
   type Player {
     id: ID!
     team: String
+    game: Game!
   }
 
   type Team {
@@ -36,7 +37,7 @@ const typeDefs = gql`
   type Mutation {
     createTeam(name: String!, gameId: ID!): Team!
     createGame(name: String!, password: String, teams: Boolean!): Game!
-    createPlayer(password: String!): Game!
+    createPlayer(password: String!): Player
     createUser(fbid: String!): User!
     createUserSession(
       fbid: String!
