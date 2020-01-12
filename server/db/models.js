@@ -95,6 +95,15 @@ Player.init(
       type: Sequelize.INTEGER.UNSIGNED,
       allowNull: true,
     },
+    alive: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
+    },
+    password: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,

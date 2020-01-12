@@ -48,6 +48,14 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.BOOLEAN,
       },
+      alive: {
+        allowNull: false,
+        type: DataTypes.BOOLEAN,
+      },
+      password: {
+        allowNull: true,
+        type: DataTypes.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
