@@ -4,9 +4,14 @@ import { useSelector } from 'react-redux';
 import GameButton from './GameButton';
 
 const GamesList = () => {
-  const games = useSelector(state => state.games);
+  const games = useSelector(state => state.game);
 
   if (!games) return 'Loading...';
+
+  console.log(games);
+  games.forEach(game => {
+    console.log(game);
+  });
   return (
     <>
       {games.map(game => (

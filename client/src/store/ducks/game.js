@@ -9,7 +9,7 @@ const DEFAULT_STATE = [];
 const gameReducer = (state = DEFAULT_STATE, action = {}) => {
   switch (action.type) {
     case ADD:
-      state = [...state, action.game];
+      state = [...state, ...action.game];
       // console.log(z);
       break;
     case CLEAR:
