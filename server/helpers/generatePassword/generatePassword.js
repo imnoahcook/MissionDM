@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const words = fs
-  .readFileSync('wordlist')
+  .readFileSync('./helpers/generatePassword/wordlist')
   .toString()
   .split('\n');
 
