@@ -19,9 +19,8 @@ const createPlayerResolver = async (_, { password }, context) => {
   }).then(count => count === 0);
 
   if (exists) throw new Error('player already exists in database');
-  Player.create({ userId, gameId: game.id, password: passpharse });
 
-  return game;
+  return Player.create({ userId, gameId: game.id, password: passpharse });
 };
 
 export default createPlayerResolver;
