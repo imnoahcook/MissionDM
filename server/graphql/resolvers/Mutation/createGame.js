@@ -6,7 +6,7 @@ const createGameResolver = async (_, { name, password, teams }, context) => {
   if (!userId) throw new Error('not logged in or invalid user session');
 
   const game = await Game.create({ name, password, teams });
-  const player = Player.create({
+  Player.create({
     userId,
     gameId: game.id,
     password: '',
