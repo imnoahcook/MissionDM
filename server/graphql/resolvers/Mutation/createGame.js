@@ -1,6 +1,6 @@
 import { Game } from '#root/db/models';
 
-const createGameResolver = (context, { name, password, teams }) => {
+const createGameResolver = (_, { name, password, teams }) => {
   return Game.create({ name, password, teams });
 };
 
