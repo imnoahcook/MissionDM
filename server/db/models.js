@@ -12,7 +12,7 @@ Game.init(
     name: Sequelize.STRING,
     teams: Sequelize.BOOLEAN,
     password: {
-      type: Sequelize.DATE,
+      type: Sequelize.STRING,
       allowNull: true,
     },
   },
