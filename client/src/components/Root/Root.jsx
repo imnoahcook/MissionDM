@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import graphqlClient from '#root/api/graphql';
 import { setSession } from '#root/store/ducks/session';
 // Components
-import AccountDetails from './AccountDetails';
+import Pages from './Pages';
 
 const Heading = styled.strong`
   display: block;
@@ -47,7 +47,7 @@ const Root = () => {
   return (
     <Wrapper>
       <Heading>Mission DM</Heading>
-      <AccountDetails />
+      <Pages />
     </Wrapper>
   );
 };
