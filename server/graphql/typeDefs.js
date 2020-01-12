@@ -14,6 +14,7 @@ const typeDefs = gql`
     id: ID!
     team: String
     game: Game!
+    password: String!
   }
 
   type Team {
