@@ -12,7 +12,7 @@ const createPlayerResolver = async (_, { password }, context) => {
 
   if (!game) throw new Error('invalid game password');
 
-  const exists = Player.count({
+  const exists = await Player.count({
     where: { userId: userId, gameId: game.id },
   }).then(count => {
     return count !== 0;
