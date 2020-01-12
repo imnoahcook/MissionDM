@@ -7,8 +7,6 @@ const gamesResolver = async (obj, _, context) => {
     where: { userId: userId },
   });
 
-  if (!players) throw new Error('invalid user ID');
-
   const gameIds = players.map(player => player.gameId);
   return Game.findAll({
     where: { id: gameIds },
