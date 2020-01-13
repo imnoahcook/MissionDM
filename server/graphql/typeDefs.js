@@ -37,7 +37,6 @@ const typeDefs = gql`
   }
 
   type GameInfo {
-    gameName: String!
     target: User
     password: String!
   }
