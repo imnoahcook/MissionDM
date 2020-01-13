@@ -1,4 +1,5 @@
 import { Player, Game } from '#root/db/models';
+import randomizeTargets from './randomizeTargets';
 
 const startGame = async (_, { gameId }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
@@ -13,7 +14,7 @@ const startGame = async (_, { gameId }, context) => {
   if (game.isRunning) return false;
 
   game.update({ isRunning: true });
-  //Call function to shuffle targets
+  randomizeTargets(_, { gameId }, context);
   return true;
 };
 
