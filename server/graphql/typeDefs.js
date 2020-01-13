@@ -33,6 +33,7 @@ const typeDefs = gql`
     expiresAt: Date!
     id: ID!
     user: User!
+    games: [Game!]!
   }
 
   type Mutation {

@@ -8,10 +8,6 @@ const GamesList = () => {
 
   if (!games) return 'Loading...';
 
-  console.log(games);
-  games.forEach(game => {
-    console.log(game);
-  });
   return (
     <>
       {games.map(game => (
