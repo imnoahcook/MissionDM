@@ -1,7 +1,6 @@
 import { Player } from '#root/db/models';
 
 const killTarget = async (_, { gameId, password }, context) => {
-  console.log(password, gameId);
   const { userId } = context.res.locals.userSession.dataValues;
   if (!userId) throw new Error('not logged in or invalid user session');
 
