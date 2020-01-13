@@ -11,10 +11,11 @@ import TargetSubmitForm from './TargetSubmitForm';
 
 const query = gql`
   {
-    target(gameId: "3") {
-      id
-      name
-      imageurl
+    gameInfo(gameId: "3") {
+      target {
+        name
+      }
+      password
     }
   }
 `;
@@ -28,6 +29,7 @@ const GameInfo = () => {
   const { name } = games.find(game => game.id === gameId);
 
   if (loading) return 'Loading...';
+  console.log(data);
 
   return (
     <>
