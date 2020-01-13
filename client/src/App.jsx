@@ -17,7 +17,7 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap');
   body {
-    background-color: #F5F8FA;
+    background-color: ${props => props.theme.eggshell};
     font-family: Roboto, sans-serif;
   }
 `;

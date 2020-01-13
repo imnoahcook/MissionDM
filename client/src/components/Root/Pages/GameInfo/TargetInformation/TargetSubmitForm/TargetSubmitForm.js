@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import TextInput from '#root/components/shared/TextInput';
-import { Button, Card, Elevation, InputGroup } from '@blueprintjs/core';
+import { Button, InputGroup } from '@blueprintjs/core';
 
 const LabelText = styled.strong`
   display: block;
@@ -47,22 +47,19 @@ const TargetSubmitForm = props => {
       },
     );
   });
-  console.log(Card);
   return (
-    <Card elevation={Elevation.TWO}>
-      <form onSubmit={onSubmit}>
-        <LabelText>Target Password</LabelText>
-        <InputGroup
-          disabled={isSubmitting}
-          name="password"
-          type="text"
-          ref={register}
-        />
-        <Button disabled={isSubmitting} type="submit">
-          Compromise
-        </Button>
-      </form>
-    </Card>
+    <form onSubmit={onSubmit}>
+      <LabelText>Target Password</LabelText>
+      <InputGroup
+        disabled={isSubmitting}
+        name="password"
+        type="text"
+        ref={register}
+      />
+      <Button disabled={isSubmitting} type="submit">
+        Compromise
+      </Button>
+    </form>
   );
 };
 
