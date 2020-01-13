@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import gql from 'graphql-tag';
 
-import TextInput from '#root/components/shared/TextInput';
+import AppToaster from '#root/components/shared/toaster';
 import { Button, InputGroup } from '@blueprintjs/core';
 
 const LabelText = styled.strong`
@@ -20,10 +20,8 @@ const KillButton = styled.button`
 `;
 
 const mutation = gql`
-  mutation($gameId: ID!, $password: String!) {
-    killTarget(gameId: $gameId, password: $password) {
-      id
-    }
+  mutation($password: String!, $gameId: String!) {
+    killTarget(password: $password, gameId: $gameId)
   }
 `;
 
@@ -40,9 +38,12 @@ const TargetSubmitForm = props => {
     console.log(gameId);
     const result = await killTarget({ variables: { password, gameId } }).then(
       ({ data }) => {
-        console.log(data);
+        console.log(password);
+        console.log(gameId);
         if (data.killTarget) {
           // TODO have it refetch the target
+        } else {
+          AppToaster.show({ message: toasted });
         }
       },
     );
