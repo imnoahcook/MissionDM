@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import Target from './Target';
 import TargetSubmitForm from './TargetSubmitForm';
 import AdminPage from './AdminPage';
+import Dead from './Dead';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -46,7 +47,7 @@ const GameInfo = () => {
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>
   ) : (
-    <p>you are dead</p>
+    <Dead />
   );
 
   return (
