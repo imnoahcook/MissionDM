@@ -26,7 +26,6 @@ const mutation = gql`
 `;
 
 const TargetSubmitForm = props => {
-  console.log('@@', props.gameId);
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -35,7 +34,6 @@ const TargetSubmitForm = props => {
   const [killTarget] = useMutation(mutation);
 
   const onSubmit = handleSubmit(async ({ password }) => {
-    console.log(props.gameId);
     await killTarget({
       variables: { password, gameId: props.gameId },
     }).then(({ data }) => {

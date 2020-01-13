@@ -22,10 +22,9 @@ const Login = () => {
   const [createUserSession] = useMutation(mutation);
 
   const loginCallback = async res => {
-    console.log(res);
-    const { id, name, picture } = res;
-    const photoURL = 'https://graph.facebook.com/' + id.toString() + '/picture?type=large';
-    console.log(photoURL);
+    const { id, name } = res;
+    const photoURL =
+      'https://graph.facebook.com/' + id.toString() + '/picture?type=large';
     const result = await createUserSession({
       variables: {
         fbid: id,
