@@ -13,16 +13,21 @@ const killTarget = async (_, { gameId, password }, context) => {
   });
 
   if (target.password === password) {
-    user.update({
+    await user.update({
       targetId: target.targetId,
       killCount: user.killCount + 1,
       killTime: Date(),
     });
 
     target.update({ alive: false });
-    return true;
+
+    const newTarget = await Player.findOne({
+      where: { gameId: gameId, id: user.targetId },
+    });
+
+    return newTarget;
   }
-  return false;
+  return target;
 };
 
 export default killTarget;
