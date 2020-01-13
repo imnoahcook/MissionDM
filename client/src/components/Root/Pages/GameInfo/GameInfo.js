@@ -42,11 +42,10 @@ const GameInfo = () => {
       {data.gameInfo.admin ? (
         <AdminPage gameId={gameId} />
       ) : (
-        <TargetInformation {...data} refetch={refetch} />
+        <TargetInformation {...data} refetch={refetch} gameId={gameId} />
       )}
     </>
   );
 };
 
 export default GameInfo;
-

@@ -20,12 +20,13 @@ const KillButton = styled.button`
 `;
 
 const mutation = gql`
-  mutation($password: String!, $gameId: String!) {
+  mutation($password: String!, $gameId: ID!) {
     killTarget(password: $password, gameId: $gameId)
   }
 `;
 
 const TargetSubmitForm = props => {
+  console.log('@@', props.gameId);
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -34,19 +35,12 @@ const TargetSubmitForm = props => {
   const [killTarget] = useMutation(mutation);
 
   const onSubmit = handleSubmit(async ({ password }) => {
-    const { gameId } = props;
-    console.log(gameId);
-    const result = await killTarget({ variables: { password, gameId } }).then(
-      ({ data }) => {
-        console.log(password);
-        console.log(gameId);
-        if (data.killTarget) {
-          // TODO have it refetch the target
-        } else {
-          AppToaster.show({ message: toasted });
-        }
-      },
-    );
+    console.log(props.gameId);
+    await killTarget({
+      variables: { password, gameId: props.gameId },
+    }).then(({ data }) => {
+      // TODO call props.refetch if succ and show a good toast, else show a bad toast
+    });
   });
   return (
     <form onSubmit={onSubmit}>
@@ -55,7 +49,7 @@ const TargetSubmitForm = props => {
         disabled={isSubmitting}
         name="password"
         type="text"
-        ref={register}
+        inputRef={register}
       />
       <Button disabled={isSubmitting} type="submit">
         Compromise

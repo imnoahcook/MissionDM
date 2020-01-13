@@ -6,7 +6,7 @@ import Dead from './Dead';
 import { Card, Elevation } from '@blueprintjs/core';
 
 const TargetInformation = props => {
-  console.log(props);
+  console.log('myprops', props);
   return (
     <Card elevation={Elevation.TWO}>
       {props.gameInfo.alive ? (
