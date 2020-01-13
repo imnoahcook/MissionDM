@@ -10,8 +10,8 @@ import TargetSubmitForm from './TargetSubmitForm';
 // Will have to add check to see if game is in progress/you are dead
 
 const query = gql`
-  {
-    gameInfo(gameId: "3") {
+  query gameInfo($gameId: ID!) {
+    gameInfo(gameId: $gameId) {
       target {
         name
         imageurl
