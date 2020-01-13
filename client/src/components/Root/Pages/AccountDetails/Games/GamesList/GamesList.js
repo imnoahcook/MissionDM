@@ -8,13 +8,7 @@ const GamesList = () => {
 
   if (!games) return 'Loading...';
 
-  return (
-    <>
-      {games.map(game => (
-        <GameButton key={game.id} {...game} />
-      ))}
-    </>
-  );
+  return games.map(game => <GameButton key={game.id} {...game} />);
 };
 
 export default GamesList;

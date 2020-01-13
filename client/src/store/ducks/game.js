@@ -1,6 +1,7 @@
 // actions
 const CLEAR = 'game/CLEAR';
 const ADD = 'game/ADD';
+const SET = 'game/SET';
 
 const DEFAULT_STATE = [];
 
@@ -9,9 +10,9 @@ const DEFAULT_STATE = [];
 const gameReducer = (state = DEFAULT_STATE, action = {}) => {
   switch (action.type) {
     case ADD:
-      state = [...state, ...action.game];
-      // console.log(z);
-      break;
+      return [...state, action.game];
+    case SET:
+      return action.game;
     case CLEAR:
       return null;
   }
@@ -23,6 +24,10 @@ export default gameReducer;
 // action creators
 export const addGame = game => {
   return { game, type: ADD };
+};
+
+export const setGames = game => {
+  return { game, type: SET };
 };
 
 export const clearGame = () => {

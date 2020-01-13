@@ -2,6 +2,9 @@ import React from 'react';
 import useForm from 'react-hook-form';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
+import { addGame } from '#root/store/ducks/game';
+import { useDispatch } from 'react-redux';
+
 import gql from 'graphql-tag';
 
 import TextInput from '#root/components/shared/TextInput';
@@ -28,11 +31,16 @@ const mutation = gql`
   mutation($password: String!) {
     createPlayer(password: $password) {
       id
+      game {
+        id
+        name
+      }
     }
   }
 `;
 
 const JoinGame = () => {
+  const dispatch = useDispatch();
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -40,8 +48,23 @@ const JoinGame = () => {
   } = useForm();
   const [joinGame] = useMutation(mutation);
   const onSubmit = handleSubmit(async ({ password }) => {
-    const result = await joinGame({ variables: { password } });
-    console.log(result);
+    const result = await joinGame({ variables: { password } }).then(
+      ({ data }) => {
+        if (data.createPlayer) {
+          const { game } = data.createPlayer;
+          dispatch(addGame(game));
+        }
+      },
+    );
+    if (result) {
+      console.log(result);
+      const {
+        data: {
+          createPlayer: { game },
+        },
+      } = result;
+      dispatch(addGame(game));
+    }
   });
   return (
     <form onSubmit={onSubmit}>
@@ -54,7 +77,6 @@ const JoinGame = () => {
           ref={register}
         />
       </Label>
-
       <JoinButton disabled={isSubmitting} type="submit">
         Join
       </JoinButton>

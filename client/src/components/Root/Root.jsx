@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { useDispatch } from 'react-redux';
 import graphqlClient from '#root/api/graphql';
 import { setSession } from '#root/store/ducks/session';
-import { addGame } from '#root/store/ducks/game';
+import { setGames } from '#root/store/ducks/game';
 // Components
 import Pages from './Pages';
 
@@ -42,11 +42,9 @@ const Root = () => {
   useEffect(() => {
     graphqlClient.query({ query }).then(({ data }) => {
       if (data.userSession) {
-        const {
-          userSession: { games, ...sessionInfo },
-        } = data;
+        const { games, ...sessionInfo } = data.userSession;
         dispatch(setSession(sessionInfo));
-        dispatch(addGame(games));
+        dispatch(setGames(games));
       }
     });
     setInitialized(true);
