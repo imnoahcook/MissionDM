@@ -19,7 +19,11 @@ const gameInfoResolver = async (obj, { gameId }, context) => {
   });
   if (!game) throw new error('Game not found');
 
-  return GameInfo.create({ gameName: game.name, target: target });
+  return GameInfo.create({
+    gameName: game.name,
+    target: target,
+    password: user.password,
+  });
 };
 
 export default gameInfoResolver;
