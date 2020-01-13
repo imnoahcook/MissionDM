@@ -8,7 +8,7 @@ const GameInfo = {
       where: { userId: userId, gameId: gameId },
     });
 
-    if (!targetId) throw new Error('Invalid target Id');
+    if (!targetId) return null;
 
     const targetPlayer = await Player.findByPk(targetId);
     if (!targetPlayer) throw new Error('Invalid Player Id');

@@ -6,7 +6,6 @@ import gql from 'graphql-tag';
 
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
-import Dead from './Dead';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -50,3 +49,4 @@ const GameInfo = () => {
 };
 
 export default GameInfo;
+
