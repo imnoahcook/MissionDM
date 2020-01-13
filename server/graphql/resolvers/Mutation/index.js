@@ -5,3 +5,4 @@ export { default as createUser } from './createUser';
 export { default as createUserSession } from './createUserSession';
 export { default as killTarget } from './killTarget';
 export { default as startGame } from './startGame';
+export { default as randomizeTargets } from './randomizeTargets';
