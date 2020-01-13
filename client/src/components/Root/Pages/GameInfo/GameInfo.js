@@ -14,6 +14,7 @@ const query = gql`
     gameInfo(gameId: "3") {
       target {
         name
+        imageurl
       }
       password
     }
@@ -29,12 +30,11 @@ const GameInfo = () => {
   const { name } = games.find(game => game.id === gameId);
 
   if (loading) return 'Loading...';
-  console.log(data);
 
   return (
     <>
       <div>Game Name: {name}</div>
-      <Target {...data} />
+      <Target {...data.gameInfo} />
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>
   );
