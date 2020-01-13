@@ -39,11 +39,10 @@ const GameInfo = () => {
   return (
     <>
       <div>Game Name: {name}</div>
-      <Target {...data.gameInfo} />
+      <Target {...data.gameInfo.target} />
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>
   );
 };
 
-// <Target name={data.target.name} imageurl={data.target.imageurl} />
 export default GameInfo;

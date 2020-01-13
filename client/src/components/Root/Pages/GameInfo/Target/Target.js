@@ -8,10 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Target = props => {
-  console.log('props', props);
-  const {
-    target: { name, imageurl },
-  } = props;
+  const { name, imageurl } = props;
   return (
     <Wrapper>
       <h2>Your target:</h2>
