@@ -61,6 +61,7 @@ const typeDefs = gql`
     target(gameId: ID): User
     player(playerId: ID): [Player]
     userSession(me: Boolean!): UserSession
+    gameInfo(gameId: ID!): GameInfo
   }
 `;
 
