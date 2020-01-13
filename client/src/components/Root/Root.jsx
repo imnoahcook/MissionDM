@@ -46,8 +46,8 @@ const Root = () => {
         dispatch(setSession(sessionInfo));
         dispatch(setGames(games));
       }
+      setInitialized(true);
     });
-    setInitialized(true);
   }, []);
 
   if (!initialized) return 'Loading...';
