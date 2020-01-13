@@ -13,8 +13,6 @@ const killTarget = async (_, { gameId, password }, context) => {
   });
 
   if (target.password === password) {
-    console.log('Correct');
-
     user.update({
       targetId: target.targetId,
       killCount: user.killCount + 1,
@@ -24,7 +22,6 @@ const killTarget = async (_, { gameId, password }, context) => {
     target.update({ alive: false });
     return true;
   }
-  console.log('Incorrect');
   return false;
 };
 
