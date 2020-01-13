@@ -8,7 +8,6 @@ const Dead = () => {
         src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Silly_string.jpg"
         alt="Silly String"
       />
-      <a href="https://localhost:3000/">Back</a>
     </>
   );
 };
