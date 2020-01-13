@@ -2,7 +2,6 @@ import React from 'react';
 import useForm from 'react-hook-form';
 import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
-import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
 
@@ -28,7 +27,6 @@ const mutation = gql`
 `;
 
 const TargetSubmitForm = props => {
-  // const dispatch = useDispatch();
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -43,8 +41,7 @@ const TargetSubmitForm = props => {
       ({ data }) => {
         console.log(data);
         if (data.killTarget) {
-          // const { game } = data.createPlayer;
-          // dispatch(addGame(game));
+          // TODO have it refetch the target
         }
       },
     );

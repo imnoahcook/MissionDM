@@ -4,8 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useSelector } from 'react-redux';
 import gql from 'graphql-tag';
 
-import Target from './Target';
-import TargetSubmitForm from './TargetSubmitForm';
+import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 
 // Will have to add check to see if game is in progress/you are dead
@@ -37,22 +36,14 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
-  const body = data.gameInfo.admin ? (
-    <AdminPage gameId={gameId} />
-  ) : data.gameInfo.alive ? (
-    <>
-      <Target {...data.gameInfo.target} />
-      <p>Your Password: {data.gameInfo.password}</p>
-      <TargetSubmitForm refetch={refetch} gameId={gameId} />
-    </>
-  ) : (
-    <p>you are dead</p>
-  );
-
   return (
     <>
       <div>Game Name: {name}</div>
-      {body}
+      {data.gameInfo.admin ? (
+        <AdminPage gameId={gameId} />
+      ) : (
+        <TargetInformation {...data} refetch={refetch} />
+      )}
     </>
   );
 };
