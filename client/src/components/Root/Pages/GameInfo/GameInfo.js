@@ -39,12 +39,14 @@ const GameInfo = () => {
 
   const body = data.gameInfo.admin ? (
     <AdminPage gameId={gameId} />
-  ) : (
+  ) : data.gameInfo.alive ? (
     <>
       <Target {...data.gameInfo.target} />
       <p>Your Password: {data.gameInfo.password}</p>
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>
+  ) : (
+    <p>you are dead</p>
   );
 
   return (
