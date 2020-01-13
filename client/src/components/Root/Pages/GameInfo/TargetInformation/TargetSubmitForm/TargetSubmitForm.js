@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/react-hooks';
 
 import gql from 'graphql-tag';
 
-import AppToaster from '#root/components/shared/toaster';
+import { GoodToaster, BadToaster } from '#root/components/shared/toaster';
 import { Button, InputGroup } from '@blueprintjs/core';
 
 const LabelText = styled.strong`
@@ -37,7 +37,14 @@ const TargetSubmitForm = props => {
     await killTarget({
       variables: { password, gameId: props.gameId },
     }).then(({ data }) => {
-      // TODO call props.refetch if succ and show a good toast, else show a bad toast
+      console.log(data);
+      if(data.killTarget){
+        //display toaster
+        GoodToaster.show({ message: 'Successfully eliminated target'});
+        props.refetch();
+      } else {
+        BadToaster.show({ message: 'Error eliminating target' });
+      }
     });
   });
   return (
