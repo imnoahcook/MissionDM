@@ -17,6 +17,8 @@ const query = gql`
         imageurl
       }
       password
+      admin
+      alive
     }
   }
 `;
@@ -30,6 +32,9 @@ const GameInfo = () => {
   const { name } = games.find(game => game.id === gameId);
 
   if (loading) return 'Loading...';
+
+  // TODO show on UI some things like my password. This should be a higher order component that shows
+  // different components based on the status of admin.
 
   return (
     <>
