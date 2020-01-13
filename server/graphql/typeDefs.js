@@ -47,7 +47,7 @@ const typeDefs = gql`
       imageurl: String!
     ): UserSession!
     deleteUserSession(sessionId: ID!): Boolean!
-    killTarget(gameId: ID!, password: String): Boolean
+    killTarget(gameId: ID!, password: String!): Player!
   }
 
   type Query {
