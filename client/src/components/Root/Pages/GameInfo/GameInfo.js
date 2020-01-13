@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 
 import Target from './Target';
 import TargetSubmitForm from './TargetSubmitForm';
+import AdminPage from './AdminPage';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -36,11 +37,19 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
+  const body = admin ? (
+    <AdminPage gameId={gameId} />
+  ) : (
+    <>
+      <Target {...data.gameInfo.target} />
+      <TargetSubmitForm refetch={refetch} gameId={gameId} />
+    </>
+  );
+
   return (
     <>
       <div>Game Name: {name}</div>
-      <Target {...data.gameInfo.target} />
-      <TargetSubmitForm refetch={refetch} gameId={gameId} />
+      {body}
     </>
   );
 };
