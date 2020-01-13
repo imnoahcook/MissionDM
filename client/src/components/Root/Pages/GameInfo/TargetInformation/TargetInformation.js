@@ -8,7 +8,7 @@ import { Card, Elevation } from '@blueprintjs/core';
 const TargetInformation = props => {
   console.log('myprops', props);
   return (
-    <Card elevation={Elevation.TWO}>
+    <>
       {props.gameInfo.alive ? (
         <>
           <Target {...props.gameInfo.target} />
@@ -17,7 +17,7 @@ const TargetInformation = props => {
       ) : (
         <Dead />
       )}
-    </Card>
+    </>
   );
 };
 
