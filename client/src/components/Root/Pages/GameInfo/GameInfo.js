@@ -1,7 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
+import { useSelector } from 'react-redux';
 import gql from 'graphql-tag';
+
 import Target from './Target';
 import TargetSubmitForm from './TargetSubmitForm';
 
@@ -22,11 +24,14 @@ const GameInfo = () => {
   const { data, loading, refetch } = useQuery(query, {
     variables: { gameId },
   });
+  const games = useSelector(state => state.game); // O(n) lookup for game name in redux store... n is small but still not the cleanest
+  const { name } = games.find(game => game.id === gameId);
 
   if (loading) return 'Loading...';
 
   return (
     <>
+      <div>Game Name: {name}</div>
       <Target {...data} />
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>

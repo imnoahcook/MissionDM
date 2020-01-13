@@ -3,14 +3,21 @@ import { User, Player } from '#root/db/models';
 const GameInfo = {
   target: async (_, { gameId }, context) => {
     const { userId } = context.res.locals.userSession.dataValues;
-    if (!userId) throw new Error('Invalid session (not logged in)');
-
-    const player = await Player.findOne({
+    if (!userId) return;
+  
+    const { targetId } = await Player.findOne({
       where: { userId: userId, gameId: gameId },
     });
-
-    if (!player) throw new Error('User not found in game');
-    return User.findByPk(player.targetid);
+  
+    if (!targetId) throw new Error('Invalid target Id');
+  
+    const targetPlayer = await Player.findOne({
+      where: { id: targetId },
+    });
+  
+    if (!targetPlayer) throw new Error('Invalid Player Id');
+  
+    return User.findByPk(targetPlayer.userId);
   },
 };
 
