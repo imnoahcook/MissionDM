@@ -1,6 +1,7 @@
 import { Player } from '#root/db/models';
 
 const killTarget = async (_, { gameId, password }, context) => {
+  console.log(password, gameId);
   const { userId } = context.res.locals.userSession.dataValues;
   if (!userId) throw new Error('not logged in or invalid user session');
 
@@ -8,9 +9,9 @@ const killTarget = async (_, { gameId, password }, context) => {
     where: { userId: userId, gameId: gameId },
   });
 
-  const target = await Player.findOne({
-    where: { gameId: gameId, id: user.targetId },
-  });
+  if (!user.targetId) throw new Error('User does not have a target');
+
+  const target = await Player.findByPk(user.targetId);
 
   if (target.password === password) {
     await user.update({
