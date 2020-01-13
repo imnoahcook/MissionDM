@@ -7,14 +7,18 @@ const Wrapper = styled.div`
   width: 60rem;
 `;
 
-const LoginButton = props => {
+const Target = props => {
+  console.log(props);
+  const {
+    target: { name, imageurl },
+  } = props;
   return (
     <Wrapper>
       <h2>Your target:</h2>
-      <p>{props.name}</p>
-      <img src={props.image} alt="Profile Picture" />
+      <p>{name}</p>
+      <img src={imageurl} alt="Profile Picture" />
     </Wrapper>
   );
 };
 
-export default LoginButton;
+export default Target;

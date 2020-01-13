@@ -9,50 +9,31 @@ import gql from 'graphql-tag';
 
 import TextInput from '#root/components/shared/TextInput';
 
-const Label = styled.label`
-  display: block;
-  :not(:first-child) {
-    margin-top: 0.75rem;
-  }
-`;
-
-const LabelText = styled.strong`
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-`;
-
-const JoinButton = styled.button`
-  display: inline-block;
-  margin-top: 0.5rem;
-`;
-
 const mutation = gql`
-  mutation($password: String!) {
-    createPlayer(password: $password) {
+  mutation($gameId: GameId, $password: String!) {
+    killTarget(password: $password) {
       id
-      game {
-        id
-        name
-      }
+      name
     }
   }
 `;
 
-const JoinGame = () => {
-  const dispatch = useDispatch();
+const TargetSubmitForm = props => {
+  // const dispatch = useDispatch();
   const {
     formState: { isSubmitting },
     handleSubmit,
     register,
   } = useForm();
-  const [joinGame] = useMutation(mutation);
-  const onSubmit = handleSubmit(async ({ password }) => {
-    const result = await joinGame({ variables: { password } }).then(
+  const [killTarget] = useMutation(mutation);
+
+  const onSubmit = handleSubmit(async ({ password, gameId }) => {
+    const result = await killTarget({ variables: { password, gameId } }).then(
       ({ data }) => {
-        if (data.createPlayer) {
-          const { game } = data.createPlayer;
-          dispatch(addGame(game));
+        console.log(data);
+        if (data.killTarget) {
+          // const { game } = data.createPlayer;
+          // dispatch(addGame(game));
         }
       },
     );
@@ -75,4 +56,4 @@ const JoinGame = () => {
   );
 };
 
-export default JoinGame;
+export default TargetSubmitForm;

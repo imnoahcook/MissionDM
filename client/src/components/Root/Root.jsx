@@ -43,8 +43,8 @@ const Root = () => {
     graphqlClient.query({ query }).then(({ data }) => {
       if (data.userSession) {
         const { games, ...sessionInfo } = data.userSession;
-        dispatch(setSession(sessionInfo));
         dispatch(setGames(games));
+        dispatch(setSession(sessionInfo));
       }
       setInitialized(true);
     });

@@ -36,6 +36,12 @@ const typeDefs = gql`
     games: [Game!]!
   }
 
+  type GameInfo {
+    gameName: String!
+    target: User
+    password: String!
+  }
+
   type Mutation {
     createTeam(name: String!, gameId: ID!): Team!
     createGame(name: String!, password: String, teams: Boolean!): Game!
