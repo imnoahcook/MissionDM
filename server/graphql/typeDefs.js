@@ -37,6 +37,8 @@ const typeDefs = gql`
   }
 
   type GameInfo {
+    admin: Boolean!
+    alive: Boolean!
     target: User
     password: String!
   }
