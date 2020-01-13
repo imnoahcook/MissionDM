@@ -59,7 +59,7 @@ const TargetSubmitForm = props => {
           ref={register}
         />
         <Button disabled={isSubmitting} type="submit">
-          Comprimise
+          Compromise
         </Button>
       </form>
     </Card>

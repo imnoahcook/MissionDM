@@ -10,7 +10,6 @@ const TargetInformation = props => {
     <>
       {props.gameInfo.alive ? (
         <>
-          <div>big mem</div>
           <Target {...props.gameInfo.target} />
           <TargetSubmitForm refetch={props.refetch} gameId={props.gameId} />
         </>
