@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import { GoodToaster, BadToaster } from '#root/components/shared/toaster';
+
 import { Button, InputGroup } from '@blueprintjs/core';
 
 const LabelText = styled.strong`
