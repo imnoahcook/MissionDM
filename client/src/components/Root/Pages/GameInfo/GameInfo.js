@@ -37,11 +37,12 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
-  const body = admin ? (
+  const body = data.gameInfo.admin ? (
     <AdminPage gameId={gameId} />
   ) : (
     <>
       <Target {...data.gameInfo.target} />
+      <p>Your Password: {data.gameInfo.password}</p>
       <TargetSubmitForm refetch={refetch} gameId={gameId} />
     </>
   );
