@@ -22,13 +22,9 @@ const killTarget = async (_, { gameId, password }, context) => {
 
     target.update({ alive: false });
 
-    const newTarget = await Player.findOne({
-      where: { gameId: gameId, id: user.targetId },
-    });
-
-    return newTarget;
+    return true;
   }
-  return target;
+  return false;
 };
 
 export default killTarget;
