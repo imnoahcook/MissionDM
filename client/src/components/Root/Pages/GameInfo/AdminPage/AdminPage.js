@@ -21,9 +21,17 @@ const getComponent = (gameId, onClick, plotTwist) => {
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
   if (running) {
-    return <Button onClick={onClick}>Start Game</Button>;
+    return (
+      <Button fullwidth={true} onClick={onClick}>
+        Start Game
+      </Button>
+    );
   } else {
-    return <Button onClick={plotTwist}>Randomize Targets</Button>;
+    return (
+      <Button fullwidth={true} onClick={plotTwist}>
+        Randomize Targets
+      </Button>
+    );
   }
 };
 

@@ -47,7 +47,7 @@ const createGame = props => {
         disabled={isSubmitting}
       />
 
-      <Button disabled={isSubmitting} type="submit">
+      <Button fullwidth={true} disabled={isSubmitting} type="submit">
         Create
       </Button>
     </form>

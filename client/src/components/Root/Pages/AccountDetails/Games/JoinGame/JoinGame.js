@@ -48,7 +48,13 @@ const JoinGame = () => {
           placeholder="game password"
           title="Enter password to join a game"
         />
-        <Button disabled={isSubmitting} type="submit">
+        <Button
+          size="medium"
+          rounded
+          fullwidth={true}
+          disabled={isSubmitting}
+          type="submit"
+        >
           Join
         </Button>
       </form>

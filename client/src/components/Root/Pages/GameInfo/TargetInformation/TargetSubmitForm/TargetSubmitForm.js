@@ -9,7 +9,6 @@ import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
 import Bottom from '#root/components/Shared/Bottom';
 import { Button } from 'react-bulma-components';
 
-
 const mutation = gql`
   mutation($password: String!, $gameId: ID!) {
     killTarget(password: $password, gameId: $gameId)
@@ -50,7 +49,7 @@ const TargetSubmitForm = props => {
           disabled={isSubmitting}
         />
 
-        <Button disabled={isSubmitting} type="submit">
+        <Button rounded fullwidth={true} disabled={isSubmitting} type="submit">
           Compromise
         </Button>
       </form>
