@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 import GameNotStarted from './GameNotStarted';
+import Revived from './revived';
 
 // import { Card, Elevation } from '@blueprintjs/core';
 
@@ -31,7 +32,7 @@ const getComponent = (gameInfo, gameId, data, refetch) => {
   if (gameInfo.admin) {
     return <AdminPage gameId={gameId} />;
   } else if (gameInfo.revived) {
-    return <GameNotStarted />;
+    return <Revived />;
   } else {
     return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
   }
