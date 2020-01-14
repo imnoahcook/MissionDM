@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import AccountDetails from './AccountDetails';
 import GameInfo from './GameInfo';
 import CreateGame from './CreateGame';
+import Bottom from '#root/components/Shared/Bottom';
 import { Box } from 'react-bulma-components';
 
 const MinHeight = styled.div`
@@ -15,9 +16,10 @@ const MinHeight = styled.div`
 `;
 
 const UserInfo = styled.div`
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+  margin-bottom: 10px;
+  bottom: 0;
+  right: 0;
+  width: 100%;
 `;
 
 
