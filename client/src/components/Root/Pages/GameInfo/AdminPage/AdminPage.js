@@ -10,14 +10,20 @@ const startGameMutation = gql`
   }
 `;
 
-const getComponent = (gameId, onClick) => {
+const randomizeTargetsMutation = gql`
+  mutation randomizeTargets($gameId: ID!) {
+    randomizeTargets(gameId: $gameId)
+  }
+`;
+
+const getComponent = (gameId, onClick, plotTwist) => {
   const games = useSelector(state => state.game);
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
   if (running) {
     return <Button onClick={onClick}>Start Game</Button>;
   } else {
-    return <p>game is running</p>;
+    return <Button onClick={plotTwist}>Randomize Targets</Button>;
   }
 };
 
@@ -27,7 +33,12 @@ const AdminPage = props => {
     await startGame({ variables: { gameId: props.gameId } });
   };
 
-  const body = getComponent(props.gameId, onClick);
+  const [randomizeTargets] = useMutation(randomizeTargetsMutation);
+  const plotTwist = async () => {
+    await randomizeTargets({ variables: { gameId: props.gameId } });
+  };
+
+  const body = getComponent(props.gameId, onClick, plotTwist);
   return <div>{body}</div>;
 };
 
