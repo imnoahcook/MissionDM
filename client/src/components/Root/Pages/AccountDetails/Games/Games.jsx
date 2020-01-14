@@ -8,7 +8,6 @@ const Games = () => {
     <Content>
       <p>Games you are a part of:</p>
       <GamesList />
-      <p>Join a game</p>
       <JoinGame />
     </Content>
   );
