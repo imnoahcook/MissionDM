@@ -14,9 +14,9 @@ const getComponent = (gameId, onClick) => {
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
   if (running) {
-    return <p>running</p>;
+    return <button onClick={onClick}>Start Game</button>;
   } else {
-    return <button onClick={onClick}>Start Game</button>; //This should really go in the first one
+    return <p>game is running</p>;
   }
 };
 
