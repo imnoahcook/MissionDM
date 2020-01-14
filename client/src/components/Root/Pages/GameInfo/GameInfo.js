@@ -50,11 +50,9 @@ const GameInfo = () => {
   const { data, loading, refetch } = useQuery(query, {
     variables: { gameId },
   });
-  const games = useSelector(state => state.game); // O(n) lookup for game name in redux store... n is small but still not the cleanest
-  const { name } = games.find(game => game.id === gameId);
 
   if (loading) return 'Loading...';
-
+  console.log(data);
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
@@ -63,7 +61,7 @@ const GameInfo = () => {
     <>
       <Heading renderAs="h2" size={3}>
         {' '}
-        {name}
+        {data.gameInfo.name}
       </Heading>
       <hr />
       {body}
