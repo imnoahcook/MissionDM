@@ -14,11 +14,6 @@ const Heading = styled.strong`
   margin: 0.75em 0 1em;
 `;
 
-const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 60rem;
-`;
-
 const query = gql`
   {
     userSession(me: true) {
@@ -53,10 +48,10 @@ const Root = () => {
   if (!initialized) return 'Loading...';
 
   return (
-    <Wrapper>
+    <>
       <Heading>Mission DM</Heading>
       <Pages />
-    </Wrapper>
+    </>
   );
 };
 
