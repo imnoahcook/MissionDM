@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { useSelector } from 'react-redux';
+import { Button } from 'react-bulma-components';
 
 const startGameMutation = gql`
   mutation startGame($gameId: ID!) {
@@ -14,9 +15,9 @@ const getComponent = (gameId, onClick) => {
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
   if (running) {
-    return <p>running</p>;
+    return <Button onClick={onClick}>Start Game</Button>;
   } else {
-    return <button onClick={onClick}>Start Game</button>; //This should really go in the first one
+    return <p>game is running</p>;
   }
 };
 

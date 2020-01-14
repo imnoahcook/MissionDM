@@ -27,6 +27,7 @@ const query = gql`
       games {
         id
         name
+        isRunning
       }
     }
   }
