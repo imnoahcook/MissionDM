@@ -9,6 +9,7 @@ import { Box } from 'react-bulma-components';
 
 const MinHeight = styled.div`
   min-height: 30em;
+  position: relative;
 `;
 
 const Pages = () => {
