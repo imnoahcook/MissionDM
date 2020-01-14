@@ -26,6 +26,7 @@ const query = gql`
       alive
       revived
       userId
+      name
     }
   }
 `;
