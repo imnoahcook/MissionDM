@@ -8,19 +8,24 @@ import CreateGame from './CreateGame';
 import { Box } from 'react-bulma-components';
 
 const MinHeight = styled.div`
-  min-height: 30em;
+  min-height: 70vh;
+  overflow: auto;
   position: relative;
 `;
+
+const GrowingDiv = styled.div``;
 
 const Pages = () => {
   return (
     <Box>
       <MinHeight>
-        <Switch>
-          <Route exact path="/" component={AccountDetails} />
-          <Route exact path="/createGame" component={CreateGame} />
-          <Route path="/game/:gameId" children={<GameInfo />} />
-        </Switch>
+        <GrowingDiv>
+          <Switch>
+            <Route exact path="/" component={AccountDetails} />
+            <Route exact path="/createGame" component={CreateGame} />
+            <Route path="/game/:gameId" children={<GameInfo />} />
+          </Switch>
+        </GrowingDiv>
       </MinHeight>
     </Box>
   );
