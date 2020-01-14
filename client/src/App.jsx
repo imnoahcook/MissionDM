@@ -18,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${props => props.theme.eggshell};
     box-sizing: border-box;
     text-align: center;
-    font-size: 2rem;
   }
 `;
 

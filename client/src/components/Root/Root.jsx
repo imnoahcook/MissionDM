@@ -5,17 +5,21 @@ import graphqlClient from '#root/api/graphql';
 import { setSession } from '#root/store/ducks/session';
 import { setGames } from '#root/store/ducks/game';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 // Components
 import Pages from './Pages';
 import {
   Heading,
-  Content,
   Container,
   Section,
   Notification,
-  Hero,
 } from 'react-bulma-components';
+
+const Footer = styled.div`
+  height: 20rem;
+  background-color: ${props => props.theme.orange};
+`;
 
 const query = gql`
   {
@@ -62,6 +66,7 @@ const Root = () => {
         <br />
         <Pages />
       </Section>
+      <Footer />
     </>
   );
 };
