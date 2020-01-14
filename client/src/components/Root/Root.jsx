@@ -57,6 +57,7 @@ const Root = () => {
             <Heading>MISSION DM</Heading>
           </Notification>
         </Container>
+        <br />
         <Pages />
       </Section>
     </>
