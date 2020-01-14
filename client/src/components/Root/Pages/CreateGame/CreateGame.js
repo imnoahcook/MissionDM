@@ -1,78 +1,57 @@
 import React from 'react';
 import useForm from 'react-hook-form';
-import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
-import { addGame } from '#root/store/ducks/game';
-import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
 
-import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
-
-const Label = styled.label`
-  display: block;
-  :not(:first-child) {
-    margin-top: 0.75rem;
-  }
-`;
-
-const LabelText = styled.strong`
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-`;
-
-const JoinButton = styled.button`
-  display: inline-block;
-  margin-top: 0.5rem;
-`;
+import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
+import { Button } from 'react-bulma-components';
 
 const mutation = gql`
-  mutation($password: String!) {
-    createPlayer(password: $password) {
-      id
-      game {
-        id
-        name
-      }
+  mutation($name: String!, $password: String!) {
+    createGame(name: $name, password: $password, teams: false) {
+      name
     }
   }
 `;
 
-const CreateGame = () => {
-  const dispatch = useDispatch();
+const createGame = props => {
   const {
     formState: { isSubmitting },
     handleSubmit,
     register,
   } = useForm();
-  const [joinGame] = useMutation(mutation);
-  const onSubmit = handleSubmit(async ({ password }) => {
-    const result = await joinGame({ variables: { password } }).then(
-      ({ data }) => {
-        if (data.createPlayer) {
-          const { game } = data.createPlayer;
-          dispatch(addGame(game));
-        }
-      },
-    );
+  const [killTarget] = useMutation(mutation);
+
+  const onSubmit = handleSubmit(async ({ name, password }) => {
+    await killTarget({
+      variables: { name: name, password: password },
+    });
   });
+
   return (
     <form onSubmit={onSubmit}>
-      <Label>
-        <InputBoxWithTitle
-          disabled={isSubmitting}
-          name="password"
-          type="text"
-          ref={register}
-          title="Game Password"
-        />
-      </Label>
-      <JoinButton disabled={isSubmitting} type="submit">
-        Join
-      </JoinButton>
+      <InputBoxWithTitle
+        title="Game Name"
+        inputRef={register}
+        placeholder="name"
+        name="name"
+        disabled={isSubmitting}
+      />
+
+      <InputBoxWithTitle
+        title="Game Password"
+        inputRef={register}
+        placeholder="password"
+        name="password"
+        disabled={isSubmitting}
+      />
+
+      <Button disabled={isSubmitting} type="submit">
+        Create
+      </Button>
     </form>
   );
 };
 
-export default CreateGame;
+export default createGame;
