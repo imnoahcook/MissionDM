@@ -14,6 +14,8 @@ import 'normalize.css/normalize.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap');
   body {
