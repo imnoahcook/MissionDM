@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
+import GameNotStarted from './GameNotStarted';
 
 // import { Card, Elevation } from '@blueprintjs/core';
 
@@ -21,13 +22,16 @@ const query = gql`
       password
       admin
       alive
+      revived
     }
   }
 `;
 
-const getComponent = (admin, gameId) => {
-  if (admin) {
+const getComponent = (gameInfo, gameId) => {
+  if (gameInfo.admin) {
     return <AdminPage gameId={gameId} />;
+  } else if (gameInfo.revived) {
+    return <GameNotStarted />;
   } else {
     return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
   }
@@ -46,7 +50,7 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
-  const body = getComponent(data.gameInfo.admin, { gameId });
+  const body = getComponent(data.gameInfo, gameId);
   return (
     <>
       <div>Game Name: {name}</div>

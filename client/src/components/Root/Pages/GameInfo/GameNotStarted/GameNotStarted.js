@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Target = () => {
+const GameNotStarted = () => {
   return (
     <>
       <h2>This game has not started yet</h2>
@@ -9,4 +9,4 @@ const Target = () => {
   );
 };
 
-export default Target;
+export default GameNotStarted;

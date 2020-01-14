@@ -41,6 +41,7 @@ const typeDefs = gql`
     alive: Boolean!
     target: User
     password: String!
+    revived: Boolean!
   }
 
   type Mutation {
