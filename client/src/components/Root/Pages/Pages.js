@@ -22,13 +22,11 @@ const UserInfo = styled.div`
   width: 100%;
 `;
 
-
 const GrowingDiv = styled.div``;
 
 const Pages = () => {
   const session = useSelector(state => state.session);
 
-  if (!session) return 'Loading...';
   return (
     <Box>
       <MinHeight>
@@ -39,7 +37,7 @@ const Pages = () => {
             <Route path="/game/:gameId" children={<GameInfo />} />
           </Switch>
         </GrowingDiv>
-        <UserInfo>Logged in as: {session.user.name}</UserInfo>
+        {session && <UserInfo>Logged in as: {session.user.name}</UserInfo>}
       </MinHeight>
     </Box>
   );

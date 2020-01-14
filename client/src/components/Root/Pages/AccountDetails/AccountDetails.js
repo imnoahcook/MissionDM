@@ -7,6 +7,8 @@ import Games from './Games';
 const AccountDetails = () => {
   const session = useSelector(state => state.session);
 
+  console.log(session);
+
   return session ? <Games /> : <Login />;
 };
 
