@@ -8,8 +8,9 @@ const GameButton = props => {
       to={{ pathname: `/game/${props.id}` }}
       style={{ textDecoration: 'none' }}
     >
-      <Button>{props.name}</Button>
-      <br />
+      <Button rounded size="normal" color="primary" outlined>
+        {props.name}
+      </Button>
     </NavLink>
   );
 };
