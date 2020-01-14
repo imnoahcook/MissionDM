@@ -52,7 +52,6 @@ const GameInfo = () => {
   });
 
   if (loading) return 'Loading...';
-  console.log(data);
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
