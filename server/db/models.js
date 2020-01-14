@@ -109,6 +109,11 @@ Player.init(
       defaultValue: true,
       allowNull: false,
     },
+    revived: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+      allowNull: false,
+    },
     password: {
       type: Sequelize.STRING,
       allowNull: false,
