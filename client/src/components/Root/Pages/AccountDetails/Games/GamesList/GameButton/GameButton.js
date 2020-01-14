@@ -1,11 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { Button } from 'react-bulma-components';
 
 const GameButton = props => {
   return (
-    <div>
-      <Link to={{ pathname: `/game/${props.id}` }}>{props.name}</Link>
-    </div>
+    <NavLink
+      to={{ pathname: `/game/${props.id}` }}
+      style={{ textDecoration: 'none' }}
+    >
+      <Button>{props.name}</Button>
+    </NavLink>
   );
 };
 
