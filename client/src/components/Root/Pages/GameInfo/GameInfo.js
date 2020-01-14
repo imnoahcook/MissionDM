@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 import GameNotStarted from './GameNotStarted';
+import Revived from './revived';
 
 
 // Will have to add check to see if game is in progress/you are dead
@@ -30,6 +31,8 @@ const getComponent = (gameInfo, gameId, data, refetch) => {
   if (gameInfo.admin) {
     return <AdminPage gameId={gameId} />;
   } else if (gameInfo.revived) {
+    return <Revived />;
+  } else if (!gameInfo.target) {
     return <GameNotStarted />;
   } else {
     return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
