@@ -76,9 +76,10 @@ const Root = () => {
       <Footer>
         <FooterText>
           <Content>
-            This application developed by University of Florida students for
+            This was application developed by University of Florida students for
             Dance Marathon at the University of Florida. For more information
             about Dance Marathon at UF please visit
+            <br />
             <a href="https://floridadm.org">floridadm.org</a>
           </Content>
         </FooterText>

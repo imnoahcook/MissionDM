@@ -10,7 +10,7 @@ const GameButton = props => {
       fullwidth={true}
       rounded
       size="medium"
-      color="primary"
+      color="info"
       outlined
     >
       {props.name}
