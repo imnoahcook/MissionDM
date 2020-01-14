@@ -20,8 +20,12 @@ import {
 const Footer = styled.div`
   min-height: 10rem;
   background-color: ${props => props.theme.orange};
-  text-align: left;
   color: white;
+  font-weight: bold;
+`;
+
+const FooterText = styled.div`
+  padding: 1rem;
 `;
 
 const query = gql`
@@ -70,11 +74,14 @@ const Root = () => {
         <Pages />
       </Section>
       <Footer>
-        <Content>
-          This application developed by University of Florida students for Dance
-          Marathon at the University of Florida. For more information about
-          Dance Marathon at UF please visit floridadm.org
-        </Content>
+        <FooterText>
+          <Content>
+            This application developed by University of Florida students for
+            Dance Marathon at the University of Florida. For more information
+            about Dance Marathon at UF please visit
+            <a href="https://floridadm.org">floridadm.org</a>
+          </Content>
+        </FooterText>
       </Footer>
     </>
   );
