@@ -9,6 +9,9 @@ import gql from 'graphql-tag';
 
 import TextInput from '#root/components/shared/TextInput';
 
+import { Form } from 'react-bulma-components';
+const { Input } = Form;
+
 const Label = styled.label`
   display: block;
   :not(:first-child) {
@@ -65,7 +68,7 @@ const JoinGame = () => {
           disabled={isSubmitting}
           name="password"
           type="text"
-          ref={register}
+          inputRef={register}
         />
       </Label>
       <JoinButton disabled={isSubmitting} type="submit">

@@ -8,6 +8,7 @@ import gql from 'graphql-tag';
 import { GoodToaster, BadToaster } from '#root/components/shared/toaster';
 
 import { Button, InputGroup, Intent } from '@blueprintjs/core';
+import InputBoxWithTitle from '../../../../../Shared/TextInput';
 
 const LabelText = styled.strong`
   display: block;
@@ -58,19 +59,13 @@ const TargetSubmitForm = props => {
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="field">
-        <label className="label">Target Password</label>
-        <div className="control">
-          <input
-            disabled={isSubmitting}
-            ref={register}
-            className="input"
-            name="password"
-            type="text"
-            placeholder="Text input"
-          />
-        </div>
-      </div>
+      <InputBoxWithTitle
+        title="Target Password"
+        ref={register}
+        placeholder="target password"
+        name="password"
+        disabled={isSubmitting}
+      />
 
       <Button disabled={isSubmitting} type="submit">
         Compromise
@@ -78,5 +73,19 @@ const TargetSubmitForm = props => {
     </form>
   );
 };
+
+// <div className="field">
+// <label className="label">Target Password</label>
+// <div className="control">
+//   <input
+//     disabled={isSubmitting}
+//     ref={register}
+//     className="input"
+//     name="password"
+//     type="text"
+//     placeholder="Text input"
+//   />
+// </div>
+// </div>
 
 export default TargetSubmitForm;
