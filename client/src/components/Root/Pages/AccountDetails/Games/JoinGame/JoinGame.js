@@ -1,32 +1,14 @@
 import React from 'react';
 import useForm from 'react-hook-form';
-import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
 import { addGame } from '#root/store/ducks/game';
 import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
-
 import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
 
 import { Button } from 'react-bulma-components';
-const Label = styled.label`
-  display: block;
-  :not(:first-child) {
-    margin-top: 0.75rem;
-  }
-`;
-
-const LabelText = styled.strong`
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-`;
-
-const JoinButton = styled.button`
-  display: inline-block;
-  margin-top: 0.5rem;
-`;
+import Bottom from '#root/components/shared/Bottom';
 
 const mutation = gql`
   mutation($password: String!) {
@@ -57,18 +39,20 @@ const JoinGame = () => {
     });
   });
   return (
-    <form onSubmit={onSubmit}>
-      <InputBoxWithTitle
-        disabled={isSubmitting}
-        name="password"
-        inputRef={register}
-        placeholder="game password"
-        title="Enter password to join a game"
-      />
-      <Button disabled={isSubmitting} type="submit">
-        Join
-      </Button>
-    </form>
+    <Bottom>
+      <form onSubmit={onSubmit}>
+        <InputBoxWithTitle
+          disabled={isSubmitting}
+          name="password"
+          inputRef={register}
+          placeholder="game password"
+          title="Enter password to join a game"
+        />
+        <Button disabled={isSubmitting} type="submit">
+          Join
+        </Button>
+      </form>
+    </Bottom>
   );
 };
 

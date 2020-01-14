@@ -6,18 +6,9 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
+import Bottom from '#root/components/Shared/Bottom';
 import { Button } from 'react-bulma-components';
 
-const LabelText = styled.strong`
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-`;
-
-const KillButton = styled.button`
-  display: inline-block;
-  margin-top: 0.5rem;
-`;
 
 const mutation = gql`
   mutation($password: String!, $gameId: ID!) {
@@ -49,19 +40,21 @@ const TargetSubmitForm = props => {
   });
 
   return (
-    <form onSubmit={onSubmit}>
-      <InputBoxWithTitle
-        title="Target Password"
-        inputRef={register}
-        placeholder="target password"
-        name="password"
-        disabled={isSubmitting}
-      />
+    <Bottom>
+      <form onSubmit={onSubmit}>
+        <InputBoxWithTitle
+          title="Target Password"
+          inputRef={register}
+          placeholder="target password"
+          name="password"
+          disabled={isSubmitting}
+        />
 
-      <Button disabled={isSubmitting} type="submit">
-        Compromise
-      </Button>
-    </form>
+        <Button disabled={isSubmitting} type="submit">
+          Compromise
+        </Button>
+      </form>
+    </Bottom>
   );
 };
 
