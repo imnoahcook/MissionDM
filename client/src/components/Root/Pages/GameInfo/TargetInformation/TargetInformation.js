@@ -3,7 +3,6 @@ import React from 'react';
 import Target from './Target';
 import TargetSubmitForm from './TargetSubmitForm';
 import Dead from './Dead';
-import { Card, Elevation } from '@blueprintjs/core';
 
 const TargetInformation = props => {
   console.log('myprops', props);

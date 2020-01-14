@@ -4,14 +4,19 @@ import AccountDetails from './AccountDetails';
 
 import GameInfo from './GameInfo';
 import CreateGame from './CreateGame';
+import { Box, Section } from 'react-bulma-components';
 
 const Pages = () => {
   return (
-    <Router>
-      <Route exact path="/" component={AccountDetails} />
-      <Route exact path="/createGame" component={CreateGame} />
-      <Route path="/game/:gameId" children={<GameInfo />} />
-    </Router>
+    <Section>
+      <Box>
+        <Router>
+          <Route exact path="/" component={AccountDetails} />
+          <Route exact path="/createGame" component={CreateGame} />
+          <Route path="/game/:gameId" children={<GameInfo />} />
+        </Router>
+      </Box>
+    </Section>
   );
 };
 

@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 
-import { Card, Elevation } from '@blueprintjs/core';
+// import { Card, Elevation } from '@blueprintjs/core';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -38,14 +38,14 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
   return (
-    <Card elevation={Elevation.TWO}>
+    <>
       <div>Game Name: {name}</div>
       {data.gameInfo.admin ? (
         <AdminPage gameId={gameId} />
       ) : (
         <TargetInformation {...data} refetch={refetch} gameId={gameId} />
       )}
-    </Card>
+    </>
   );
 };
 
