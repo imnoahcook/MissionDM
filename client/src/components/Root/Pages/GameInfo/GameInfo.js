@@ -7,8 +7,8 @@ import gql from 'graphql-tag';
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 import GameNotStarted from './GameNotStarted';
-import Revived from './revived';
-
+import Revived from './Revived';
+import Won from './Won';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -18,11 +18,13 @@ const query = gql`
       target {
         name
         imageurl
+        id
       }
       password
       admin
       alive
       revived
+      userId
     }
   }
 `;
@@ -34,6 +36,8 @@ const getComponent = (gameInfo, gameId, data, refetch) => {
     return <Revived />;
   } else if (!gameInfo.target) {
     return <GameNotStarted />;
+  } else if (gameInfo.target.id === gameInfo.userId) {
+    return <Won />;
   } else {
     return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
   }
