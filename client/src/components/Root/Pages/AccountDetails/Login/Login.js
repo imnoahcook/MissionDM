@@ -11,6 +11,7 @@ const mutation = gql`
     createUserSession(fbid: $fbid, name: $name, imageurl: $imageurl) {
       id
       user {
+        name
         id
       }
     }
@@ -25,15 +26,18 @@ const Login = () => {
     const { id, name } = res;
     const photoURL =
       'https://graph.facebook.com/' + id.toString() + '/picture?type=large';
-    const result = await createUserSession({
+    await createUserSession({
       variables: {
         fbid: id,
         name,
         imageurl: photoURL,
       },
+    }).then(({ data }) => {
+      if (data.createUserSession) {
+        dispatch(setSession(data.createUserSession));
+      }
+      console.log(data);
     });
-    if (!result.data.createUserSession) return;
-    dispatch(setSession(result.data.createUserSession.id));
   };
 
   return <LoginButton callback={loginCallback} />;
