@@ -30,17 +30,17 @@ const query = gql`
 `;
 
 const getComponent = (gameInfo, gameId, data, refetch) => {
-  if (gameInfo.admin) {
-    return <AdminPage gameId={gameId} />;
-  } else if (gameInfo.revived) {
-    return <Revived />;
-  } else if (!gameInfo.target) {
-    return <GameNotStarted />;
-  } else if (gameInfo.target.id === gameInfo.userId) {
-    return <Won />;
-  } else {
-    return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
-  }
+  // if (gameInfo.admin) {
+  //   return <AdminPage gameId={gameId} />;
+  // } else if (gameInfo.revived) {
+  //   return <Revived />;
+  // } else if (!gameInfo.target) {
+  //   return <GameNotStarted />;
+  // } else if (gameInfo.target.id === gameInfo.userId) {
+  //   return <Won />;
+  // } else {
+  return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
+  // }
 };
 
 const GameInfo = () => {

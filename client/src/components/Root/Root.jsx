@@ -54,7 +54,7 @@ const Root = () => {
       <Section>
         <Container>
           <Notification color="info">
-            This container is <strong>centered</strong> on desktop.
+            <Heading>MISSION DM</Heading>
           </Notification>
         </Container>
         <Pages />

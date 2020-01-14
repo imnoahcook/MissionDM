@@ -58,16 +58,13 @@ const JoinGame = () => {
   });
   return (
     <form onSubmit={onSubmit}>
-      <Label>
-        <br/>
-        <LabelText>Enter a password to join a game:</LabelText>
-        <InputBoxWithTitle
-          disabled={isSubmitting}
-          name="password"
-          inputRef={register}
-          placeholder="game password"
-        />
-      </Label>
+      <InputBoxWithTitle
+        disabled={isSubmitting}
+        name="password"
+        inputRef={register}
+        placeholder="game password"
+        title="Enter password to join a game"
+      />
       <Button disabled={isSubmitting} type="submit">
         Join
       </Button>
