@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-const CenteredWrapper = styled.div`
-  text-align: center;
+const Blue = styled.div`
+  background-color: blue;
 `;
 
-const CenteredChild = styled.div`
-  display: inline-block;
-`;
+import { Container } from 'react-bulma-components';
+
 const InputBoxWithTitle = props => {
   const { title, inputRef, name, placeholder, disabled } = props;
   return (
@@ -16,10 +15,10 @@ const InputBoxWithTitle = props => {
         <input
           disabled={disabled}
           ref={inputRef}
-          className="input"
+          className="input is-expanded"
           name={name}
           type="text"
-          placeholder={placeholder || ''}
+          placeholder={placeholder}
         />
       </div>
     </div>

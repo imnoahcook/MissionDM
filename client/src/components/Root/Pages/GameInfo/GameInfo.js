@@ -9,6 +9,7 @@ import AdminPage from './AdminPage';
 import GameNotStarted from './GameNotStarted';
 import Revived from './Revived';
 import Won from './Won';
+import { Heading } from 'react-bulma-components';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -59,7 +60,7 @@ const GameInfo = () => {
   const body = getComponent(data.gameInfo, gameId, data, refetch);
   return (
     <>
-      <div>Game Name: {name}</div>
+      <Heading>Game Name: {name}</Heading>
       {body}
     </>
   );

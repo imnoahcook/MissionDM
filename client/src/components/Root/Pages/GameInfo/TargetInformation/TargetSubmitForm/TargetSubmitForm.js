@@ -44,11 +44,10 @@ const TargetSubmitForm = props => {
         <InputBoxWithTitle
           title="Target Password"
           inputRef={register}
-          placeholder="target password"
+          placeholder="Password"
           name="password"
           disabled={isSubmitting}
         />
-
         <Button rounded fullwidth={true} disabled={isSubmitting} type="submit">
           Compromise
         </Button>

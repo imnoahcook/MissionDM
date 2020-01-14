@@ -42,19 +42,13 @@ const JoinGame = () => {
     <Bottom>
       <form onSubmit={onSubmit}>
         <InputBoxWithTitle
-          disabled={isSubmitting}
-          name="password"
-          inputRef={register}
-          placeholder="game password"
           title="Enter password to join a game"
-        />
-        <Button
-          size="medium"
-          rounded
-          fullwidth={true}
+          inputRef={register}
+          placeholder="Password"
+          name="password"
           disabled={isSubmitting}
-          type="submit"
-        >
+        />
+        <Button rounded fullwidth={true} disabled={isSubmitting} type="submit">
           Join
         </Button>
       </form>
@@ -62,4 +56,18 @@ const JoinGame = () => {
   );
 };
 
+// <Bottom>
+//   <form onSubmit={onSubmit}>
+//     <InputBoxWithTitle
+//       disabled={isSubmitting}
+//       name="password"
+//       inputRef={register}
+//       placeholder="game password"
+//       title="Enter password to join a game"
+//     />
+//     <Button rounded fullwidth={true} disabled={isSubmitting} type="submit">
+//       Join
+//     </Button>
+//   </form>
+// </Bottom>
 export default JoinGame;
