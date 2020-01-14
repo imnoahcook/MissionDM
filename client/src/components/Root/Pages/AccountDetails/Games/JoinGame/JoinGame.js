@@ -9,6 +9,7 @@ import gql from 'graphql-tag';
 
 import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
 
+import { Button } from 'react-bulma-components';
 const Label = styled.label`
   display: block;
   :not(:first-child) {
@@ -68,9 +69,9 @@ const JoinGame = () => {
           placeholder="game password"
         />
       </Label>
-      <JoinButton disabled={isSubmitting} type="submit">
+      <Button disabled={isSubmitting} type="submit">
         Join
-      </JoinButton>
+      </Button>
     </form>
   );
 };

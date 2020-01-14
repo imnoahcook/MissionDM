@@ -13,10 +13,10 @@ import * as theme from './theme';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap');
+  /* @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap'); */
   body {
     background-color: ${props => props.theme.eggshell};
-    font-family: Roboto, sans-serif;
+    /* font-family: Roboto, sans-serif; */
   }
 `;
 
