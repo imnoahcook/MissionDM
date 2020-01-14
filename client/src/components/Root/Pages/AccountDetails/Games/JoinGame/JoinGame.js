@@ -7,10 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
 
-import TextInput from '#root/components/shared/TextInput';
-
-import { Form } from 'react-bulma-components';
-const { Input } = Form;
+import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
 
 const Label = styled.label`
   display: block;
@@ -64,11 +61,11 @@ const JoinGame = () => {
     <form onSubmit={onSubmit}>
       <Label>
         <LabelText>Game Password</LabelText>
-        <TextInput
+        <InputBoxWithTitle
           disabled={isSubmitting}
           name="password"
-          type="text"
           inputRef={register}
+          placeholder="game password"
         />
       </Label>
       <JoinButton disabled={isSubmitting} type="submit">

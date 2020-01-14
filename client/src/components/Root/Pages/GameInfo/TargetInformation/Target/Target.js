@@ -10,11 +10,11 @@ const Wrapper = styled.div`
 const Target = props => {
   const { name, imageurl } = props;
   return (
-    <Wrapper>
+    <>
       <h2>Your target:</h2>
       <p>{name}</p>
       <img src={imageurl} alt="Profile Picture" />
-    </Wrapper>
+    </>
   );
 };
 

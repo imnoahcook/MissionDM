@@ -10,10 +10,6 @@ import Root from './components/Root';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import * as theme from './theme';
 
-import 'normalize.css/normalize.css';
-import '@blueprintjs/core/lib/css/blueprint.css';
-import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 const GlobalStyle = createGlobalStyle`

@@ -8,7 +8,6 @@ import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 import GameNotStarted from './GameNotStarted';
 
-// import { Card, Elevation } from '@blueprintjs/core';
 
 // Will have to add check to see if game is in progress/you are dead
 

@@ -5,10 +5,8 @@ import { useMutation } from '@apollo/react-hooks';
 
 import gql from 'graphql-tag';
 
-import { GoodToaster, BadToaster } from '#root/components/shared/toaster';
-
-import { Button, InputGroup, Intent } from '@blueprintjs/core';
-import InputBoxWithTitle from '../../../../../Shared/TextInput';
+import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
+import { Button } from 'react-bulma-components';
 
 const LabelText = styled.strong`
   display: block;
@@ -28,7 +26,6 @@ const mutation = gql`
 `;
 
 const TargetSubmitForm = props => {
-  console.log(GoodToaster);
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -43,16 +40,10 @@ const TargetSubmitForm = props => {
       console.log(data);
       if (data.killTarget) {
         //display toaster
-        GoodToaster.show({
-          message: 'Successfully eliminated target',
-          intent: Intent.DANGER,
-        });
+        console.log('good');
         props.refetch();
       } else {
-        BadToaster.show({
-          message: 'Error eliminating target',
-          intent: Intent.DANGER,
-        });
+        console.log('bad');
       }
     });
   });
@@ -61,7 +52,7 @@ const TargetSubmitForm = props => {
     <form onSubmit={onSubmit}>
       <InputBoxWithTitle
         title="Target Password"
-        ref={register}
+        inputRef={register}
         placeholder="target password"
         name="password"
         disabled={isSubmitting}
@@ -73,19 +64,5 @@ const TargetSubmitForm = props => {
     </form>
   );
 };
-
-// <div className="field">
-// <label className="label">Target Password</label>
-// <div className="control">
-//   <input
-//     disabled={isSubmitting}
-//     ref={register}
-//     className="input"
-//     name="password"
-//     type="text"
-//     placeholder="Text input"
-//   />
-// </div>
-// </div>
 
 export default TargetSubmitForm;

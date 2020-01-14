@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
 
-import TextInput from '#root/components/shared/TextInput';
+import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
 
 const Label = styled.label`
   display: block;
@@ -60,12 +60,12 @@ const CreateGame = () => {
   return (
     <form onSubmit={onSubmit}>
       <Label>
-        <LabelText>Game Password</LabelText>
-        <TextInput
+        <InputBoxWithTitle
           disabled={isSubmitting}
           name="password"
           type="text"
           ref={register}
+          title="Game Password"
         />
       </Label>
       <JoinButton disabled={isSubmitting} type="submit">
