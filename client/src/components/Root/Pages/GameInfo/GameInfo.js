@@ -27,7 +27,7 @@ const query = gql`
   }
 `;
 
-const getComponent = (gameInfo, gameId) => {
+const getComponent = (gameInfo, gameId, data, refetch) => {
   if (gameInfo.admin) {
     return <AdminPage gameId={gameId} />;
   } else if (gameInfo.revived) {
@@ -50,7 +50,7 @@ const GameInfo = () => {
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
 
-  const body = getComponent(data.gameInfo, gameId);
+  const body = getComponent(data.gameInfo, gameId, data, refetch);
   return (
     <>
       <div>Game Name: {name}</div>
