@@ -25,6 +25,14 @@ const query = gql`
   }
 `;
 
+const getComponent = (admin, gameId) => {
+  if (admin) {
+    return <AdminPage gameId={gameId} />;
+  } else {
+    return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
+  }
+};
+
 const GameInfo = () => {
   const { gameId } = useParams();
   const { data, loading, refetch } = useQuery(query, {
@@ -37,14 +45,12 @@ const GameInfo = () => {
 
   // TODO show on UI some things like my password. This should be a higher order component that shows
   // different components based on the status of admin.
+
+  const body = getComponent(data.gameInfo.admin, { gameId });
   return (
     <>
       <div>Game Name: {name}</div>
-      {data.gameInfo.admin ? (
-        <AdminPage gameId={gameId} />
-      ) : (
-        <TargetInformation {...data} refetch={refetch} gameId={gameId} />
-      )}
+      {body}
     </>
   );
 };
