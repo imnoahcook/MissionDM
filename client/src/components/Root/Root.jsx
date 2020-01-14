@@ -14,11 +14,14 @@ import {
   Container,
   Section,
   Notification,
+  Content,
 } from 'react-bulma-components';
 
 const Footer = styled.div`
-  height: 20rem;
+  min-height: 10rem;
   background-color: ${props => props.theme.orange};
+  text-align: left;
+  color: white;
 `;
 
 const query = gql`
@@ -66,7 +69,13 @@ const Root = () => {
         <br />
         <Pages />
       </Section>
-      <Footer />
+      <Footer>
+        <Content>
+          This application developed by University of Florida students for Dance
+          Marathon at the University of Florida. For more information about
+          Dance Marathon at UF please visit floridadm.org
+        </Content>
+      </Footer>
     </>
   );
 };
