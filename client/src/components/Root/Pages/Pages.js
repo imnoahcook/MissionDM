@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import AccountDetails from './AccountDetails';
 import GameInfo from './GameInfo';
 import CreateGame from './CreateGame';
-import Bottom from '#root/components/Shared/Bottom';
+import UserInfo from './UserInfo';
 import { Box } from 'react-bulma-components';
 
 const MinHeight = styled.div`
@@ -15,20 +15,12 @@ const MinHeight = styled.div`
   position: relative;
 `;
 
-const UserInfo = styled.div`
-  margin-bottom: 10px;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-`;
-
 const GrowingDiv = styled.div``;
 
 const Pages = () => {
   const session = useSelector(state => state.session);
 
   console.log(session);
-
   return (
     <Box>
       <MinHeight>
@@ -39,7 +31,7 @@ const Pages = () => {
             <Route path="/game/:gameId" children={<GameInfo />} />
           </Switch>
         </GrowingDiv>
-        {!session || <UserInfo>Logged in as: {session.user.name}</UserInfo>}
+        <UserInfo {...session}/>
       </MinHeight>
     </Box>
   );
