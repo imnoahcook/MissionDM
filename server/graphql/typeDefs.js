@@ -8,6 +8,7 @@ const typeDefs = gql`
     name: String!
     players: [Player!]!
     teams: Boolean!
+    isRunning: Boolean!
   }
 
   type Player {
