@@ -7,8 +7,10 @@ const Target = props => {
   const { name, imageurl, password } = props;
   return (
     <>
-      <Heading>Your target:</Heading>
-      <p>{name}</p>
+      <Heading>Your target is</Heading>
+      <Heading renderAs="h2" size={1}>
+        {name}
+      </Heading>
       <img src={imageurl} alt="Profile Picture" />
       <p>Your password is {password}</p>
     </>

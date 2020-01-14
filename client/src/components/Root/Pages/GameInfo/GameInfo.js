@@ -60,7 +60,10 @@ const GameInfo = () => {
   const body = getComponent(data.gameInfo, gameId, data, refetch);
   return (
     <>
-      <Heading>Game Name: {name}</Heading>
+      <Heading renderAs="h2" size={6}>
+        {' '}
+        {name}
+      </Heading>
       {body}
     </>
   );
