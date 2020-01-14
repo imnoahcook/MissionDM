@@ -11,22 +11,21 @@ const TextInfo = styled.div`
   width: 100%;
 `;
 
-const mutation = gql`
-  mutation($sessionId: ID!) {
-    deleteUserSession(sessionId: $sessionId)
-  }
-`;
+// const mutation = gql`
+//   mutation($sessionId: ID!) {
+//     deleteUserSession(sessionId: $sessionId)
+//   }
+// `;
 
 const UserInfo = props => {
-  const [logOutMutation] = useMutation(mutation);
-  const logoutUser = async () => {
-    logOutMutation({ variables: { sessionId: props.user.id } });
-  };
-  console.log(props);
+//   const [logOutMutation] = useMutation(mutation);
+//   const logoutUser = async () => {
+//     logOutMutation({ variables: { sessionId: props.user.id } });
+//   };
+//   console.log(props);
   return (
     <>
       {!props || <TextInfo>Logged in as: {props.user.name}</TextInfo>}
-      <a onClick={logoutUser}>Logout</a>
     </>
   );
 };
