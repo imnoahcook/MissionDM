@@ -80,7 +80,9 @@ const Root = () => {
             Dance Marathon at the University of Florida. For more information
             about Dance Marathon at UF please visit
             <br />
-            <a href="https://floridadm.org">floridadm.org</a>
+            <a href="https://floridadm.org" target="_blank">
+              floridadm.org
+            </a>
           </Content>
         </FooterText>
       </Footer>
