@@ -9,6 +9,7 @@ const GameButton = props => {
       style={{ textDecoration: 'none' }}
     >
       <Button>{props.name}</Button>
+      <br/>
     </NavLink>
   );
 };
