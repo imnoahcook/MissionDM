@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,9 +14,19 @@ const MinHeight = styled.div`
   position: relative;
 `;
 
+const UserInfo = styled.div`
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+`;
+
+
 const GrowingDiv = styled.div``;
 
 const Pages = () => {
+  const session = useSelector(state => state.session);
+
+  if (!session) return 'Loading...';
   return (
     <Box>
       <MinHeight>
@@ -26,6 +37,7 @@ const Pages = () => {
             <Route path="/game/:gameId" children={<GameInfo />} />
           </Switch>
         </GrowingDiv>
+        <UserInfo>Logged in as: {session.user.name}</UserInfo>
       </MinHeight>
     </Box>
   );
