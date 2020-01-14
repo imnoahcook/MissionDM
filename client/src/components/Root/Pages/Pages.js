@@ -13,9 +13,8 @@ const MinHeight = styled.div`
   min-height: 70vh;
   overflow: auto;
   position: relative;
+  background-color: red;
 `;
-
-const GrowingDiv = styled.div``;
 
 const Pages = () => {
   const session = useSelector(state => state.session);
@@ -24,14 +23,11 @@ const Pages = () => {
   return (
     <Box>
       <MinHeight>
-        <GrowingDiv>
-          <Switch>
-            <Route exact path="/" component={AccountDetails} />
-            <Route exact path="/createGame" component={CreateGame} />
-            <Route path="/game/:gameId" children={<GameInfo />} />
-          </Switch>
-        </GrowingDiv>
-        <UserInfo {...session}/>
+        <Switch>
+          <Route exact path="/" component={AccountDetails} />
+          <Route exact path="/createGame" component={CreateGame} />
+          <Route path="/game/:gameId" children={<GameInfo />} />
+        </Switch>
       </MinHeight>
     </Box>
   );

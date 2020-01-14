@@ -3,12 +3,19 @@ import useForm from 'react-hook-form';
 import { useMutation } from '@apollo/react-hooks';
 import { addGame } from '#root/store/ducks/game';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import gql from 'graphql-tag';
 import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
 
 import { Button } from 'react-bulma-components';
 import Bottom from '#root/components/shared/Bottom';
+
+const TempBottom = styled.div`
+  bottom: 40px;
+  width: 100%;
+  background-color: blue;
+`;
 
 const mutation = gql`
   mutation($password: String!) {

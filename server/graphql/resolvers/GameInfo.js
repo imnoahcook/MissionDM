@@ -1,4 +1,4 @@
-import { User, Player } from '#root/db/models';
+import { User, Player, Game } from '#root/db/models';
 
 const GameInfo = {
   target: async player => {
@@ -14,6 +14,11 @@ const GameInfo = {
     if (!targetPlayer) throw new Error('Invalid Player Id');
 
     return User.findByPk(targetPlayer.userId);
+  },
+  name: async player => {
+    const game = await Game.findByPk(player.gameId);
+
+    return game.name;
   },
 };
 

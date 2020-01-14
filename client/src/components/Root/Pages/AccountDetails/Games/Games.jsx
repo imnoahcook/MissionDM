@@ -5,10 +5,10 @@ import JoinGame from './JoinGame';
 import { Content } from 'react-bulma-components';
 const Games = () => {
   return (
-    <Content>
+    <>
       <GamesList />
       <JoinGame />
-    </Content>
+    </>
   );
 };
 

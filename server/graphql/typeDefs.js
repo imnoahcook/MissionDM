@@ -41,6 +41,7 @@ const typeDefs = gql`
     admin: Boolean!
     alive: Boolean!
     target: User
+    name: String!
     password: String!
     revived: Boolean!
     userId: String!
