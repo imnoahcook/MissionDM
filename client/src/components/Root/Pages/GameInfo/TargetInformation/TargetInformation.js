@@ -11,6 +11,7 @@ const TargetInformation = props => {
       {props.gameInfo.alive ? (
         <>
           <Target {...props.gameInfo.target} />
+          <p>your password is: {props.gameInfo.password}</p>
           <TargetSubmitForm refetch={props.refetch} gameId={props.gameId} />
         </>
       ) : (
