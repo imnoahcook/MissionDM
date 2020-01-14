@@ -33,6 +33,8 @@ const getComponent = (gameInfo, gameId, data, refetch) => {
     return <AdminPage gameId={gameId} />;
   } else if (gameInfo.revived) {
     return <Revived />;
+  } else if (!gameInfo.target) {
+    return <GameNotStarted />;
   } else {
     return <TargetInformation {...data} refetch={refetch} gameId={gameId} />;
   }
