@@ -14,11 +14,10 @@ import * as theme from './theme';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 const GlobalStyle = createGlobalStyle`
-  /* @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap'); */
   body {
     background-color: ${props => props.theme.eggshell};
     box-sizing: border-box;
-    /* font-family: Roboto, sans-serif; */
+    text-align: center;
   }
 `;
 

@@ -10,7 +10,6 @@ const GamesList = () => {
   const games = useSelector(state => state.game);
 
   if (!games) return 'Loading...';
-  console.log(Group);
   return (
     <Group>
       {games.map(game => (
