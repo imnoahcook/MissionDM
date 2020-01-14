@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import TargetInformation from './TargetInformation';
 import AdminPage from './AdminPage';
 
-import { Card, Elevation } from '@blueprintjs/core';
+// import { Card, Elevation } from '@blueprintjs/core';
 
 // Will have to add check to see if game is in progress/you are dead
 
@@ -48,10 +48,10 @@ const GameInfo = () => {
 
   const body = getComponent(data.gameInfo.admin, { gameId });
   return (
-    <Card elevation={Elevation.TWO}>
+    <>
       <div>Game Name: {name}</div>
       {body}
-    </Card>
+    </>
   );
 };
 
