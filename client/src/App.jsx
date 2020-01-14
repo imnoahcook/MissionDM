@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import * as React from 'react';
+import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';

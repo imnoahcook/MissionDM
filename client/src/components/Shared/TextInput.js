@@ -1,12 +1,22 @@
-import styled from 'styled-components';
+import React from 'react';
 
-const TextInput = styled.input`
-  border: 1px solid ${props => props.theme.veryLightGrey};
-  box-sizing: border-box;
-  display: block;
-  font-size: 0.9rem;
-  padding: 0.25rem;
-  width: 100%;
-`;
+const InputBoxWithTitle = props => {
+  const { title, inputRef, name, placeholder, disabled } = props;
+  return (
+    <div className="field">
+      <label className="label">{title}</label>
+      <div className="control">
+        <input
+          disabled={disabled}
+          ref={inputRef}
+          className="input"
+          name={name}
+          type="text"
+          placeholder={placeholder || ''}
+        />
+      </div>
+    </div>
+  );
+};
 
-export default TextInput;
+export default InputBoxWithTitle;
