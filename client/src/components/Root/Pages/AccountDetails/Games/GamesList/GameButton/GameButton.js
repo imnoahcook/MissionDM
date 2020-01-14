@@ -4,7 +4,7 @@ import { Button } from 'react-bulma-components';
 
 const GameButton = props => {
   return (
-    <Button rounded size="normal" color="primary" outlined>
+    <Button fullwidth={true} rounded size="medium" color="primary" outlined>
       <NavLink
         to={{ pathname: `/game/${props.id}` }}
         style={{ textDecoration: 'none' }}
