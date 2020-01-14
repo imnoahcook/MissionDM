@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import styled from 'styled-components';
-
 
 const TextInfo = styled.div`
   margin-bottom: 10px;
@@ -13,22 +12,22 @@ const TextInfo = styled.div`
 `;
 
 const mutation = gql`
-    mutation($sessionId: ID!){
-        deleteUserSession(sessionId: $sessionId)
-    }
+  mutation($sessionId: ID!) {
+    deleteUserSession(sessionId: $sessionId)
+  }
 `;
 
 const UserInfo = props => {
-    const logoutUser = () => {
-      const didLogout = useMutation(mutation);
-      console.log(didLogout);
-    };
-    console.log(props);
-    return(
+  const [logOutMutation] = useMutation(mutation);
+  const logoutUser = async () => {
+    logOutMutation({ variables: { sessionId: props.user.id } });
+  };
+  console.log(props);
+  return (
     <>
       {!props || <TextInfo>Logged in as: {props.user.name}</TextInfo>}
       <a onClick={logoutUser}>Logout</a>
     </>
-    );
+  );
 };
 export default UserInfo;
