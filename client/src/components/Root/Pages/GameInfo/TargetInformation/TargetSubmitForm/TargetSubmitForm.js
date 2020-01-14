@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 
 import { GoodToaster, BadToaster } from '#root/components/shared/toaster';
 
-import { Button, InputGroup } from '@blueprintjs/core';
+import { Button, InputGroup, Intent } from '@blueprintjs/core';
 
 const LabelText = styled.strong`
   display: block;
@@ -27,6 +27,7 @@ const mutation = gql`
 `;
 
 const TargetSubmitForm = props => {
+  console.log(GoodToaster);
   const {
     formState: { isSubmitting },
     handleSubmit,
@@ -39,24 +40,38 @@ const TargetSubmitForm = props => {
       variables: { password, gameId: props.gameId },
     }).then(({ data }) => {
       console.log(data);
-      if(data.killTarget){
+      if (data.killTarget) {
         //display toaster
-        GoodToaster.show({ message: 'Successfully eliminated target'});
+        GoodToaster.show({
+          message: 'Successfully eliminated target',
+          intent: Intent.DANGER,
+        });
         props.refetch();
       } else {
-        BadToaster.show({ message: 'Error eliminating target' });
+        BadToaster.show({
+          message: 'Error eliminating target',
+          intent: Intent.DANGER,
+        });
       }
     });
   });
+
   return (
     <form onSubmit={onSubmit}>
-      <LabelText>Target Password</LabelText>
-      <InputGroup
-        disabled={isSubmitting}
-        name="password"
-        type="text"
-        inputRef={register}
-      />
+      <div className="field">
+        <label className="label">Target Password</label>
+        <div className="control">
+          <input
+            disabled={isSubmitting}
+            ref={register}
+            className="input"
+            name="password"
+            type="text"
+            placeholder="Text input"
+          />
+        </div>
+      </div>
+
       <Button disabled={isSubmitting} type="submit">
         Compromise
       </Button>
