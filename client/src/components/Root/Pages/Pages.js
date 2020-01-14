@@ -19,7 +19,6 @@ const MinHeight = styled.div`
 const Pages = () => {
   const session = useSelector(state => state.session);
 
-  console.log(session);
   return (
     <Box>
       <MinHeight>

@@ -27,7 +27,7 @@ const TargetSubmitForm = props => {
     await killTarget({
       variables: { password, gameId: props.gameId },
     }).then(({ data }) => {
-      console.log(data);
+      //console.log(data);
       if (data.killTarget) {
         //display toaster
         console.log('good');
