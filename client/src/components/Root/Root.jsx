@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import gql from 'graphql-tag';
 import { useDispatch } from 'react-redux';
 import graphqlClient from '#root/api/graphql';
 import { setSession } from '#root/store/ducks/session';
 import { setGames } from '#root/store/ducks/game';
+import { Link } from 'react-router-dom';
+
 // Components
 import Pages from './Pages';
 import {
@@ -53,7 +54,7 @@ const Root = () => {
   return (
     <>
       <Section>
-        <Container>
+        <Container renderAs={Link} to="/">
           <Notification color="info">
             <Heading>MISSION DM</Heading>
           </Notification>
