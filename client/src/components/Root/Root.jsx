@@ -7,11 +7,14 @@ import { setSession } from '#root/store/ducks/session';
 import { setGames } from '#root/store/ducks/game';
 // Components
 import Pages from './Pages';
-
-const Heading = styled.strong`
-  display: block;
-  font-size: 2rem;
-`;
+import {
+  Heading,
+  Content,
+  Container,
+  Section,
+  Notification,
+  Hero,
+} from 'react-bulma-components';
 
 const query = gql`
   {
@@ -48,8 +51,14 @@ const Root = () => {
 
   return (
     <>
-      <Heading>Mission DM</Heading>
-      <Pages />
+      <Section>
+        <Container>
+          <Notification color="info">
+            This container is <strong>centered</strong> on desktop.
+          </Notification>
+        </Container>
+        <Pages />
+      </Section>
     </>
   );
 };

@@ -49,14 +49,12 @@ const JoinGame = () => {
   } = useForm();
   const [joinGame] = useMutation(mutation);
   const onSubmit = handleSubmit(async ({ password }) => {
-    const result = await joinGame({ variables: { password } }).then(
-      ({ data }) => {
-        if (data.createPlayer) {
-          const { game } = data.createPlayer;
-          dispatch(addGame(game));
-        }
-      },
-    );
+    await joinGame({ variables: { password } }).then(({ data }) => {
+      if (data.createPlayer) {
+        const { game } = data.createPlayer;
+        dispatch(addGame(game));
+      }
+    });
   });
   return (
     <form onSubmit={onSubmit}>

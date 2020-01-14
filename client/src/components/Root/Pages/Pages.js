@@ -8,15 +8,13 @@ import { Box, Section } from 'react-bulma-components';
 
 const Pages = () => {
   return (
-    <Section>
-      <Box>
-        <Switch>
-          <Route exact path="/" component={AccountDetails} />
-          <Route exact path="/createGame" component={CreateGame} />
-          <Route path="/game/:gameId" children={<GameInfo />} />
-        </Switch>
-      </Box>
-    </Section>
+    <Box>
+      <Switch>
+        <Route exact path="/" component={AccountDetails} />
+        <Route exact path="/createGame" component={CreateGame} />
+        <Route path="/game/:gameId" children={<GameInfo />} />
+      </Switch>
+    </Box>
   );
 };
 
