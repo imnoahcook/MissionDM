@@ -8,6 +8,7 @@ import graphqlClient from './api/graphql';
 import Root from './components/Root';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as theme from './theme';
 
 import 'react-bulma-components/dist/react-bulma-components.min.css';
@@ -15,7 +16,8 @@ import 'react-bulma-components/dist/react-bulma-components.min.css';
 const GlobalStyle = createGlobalStyle`
   /* @import url('https://fonts.googleapis.com/css?family=Roboto:300,500&display=swap'); */
   body {
-    background-color: ${props => props.theme.eggshell};
+    /* bgcolor: ${props => props.theme.eggshell}; */
+    background-color:powderblue;
     /* font-family: Roboto, sans-serif; */
   }
 `;
@@ -24,8 +26,10 @@ render(
   <Provider store={store}>
     <ApolloProvider client={graphqlClient}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Root />
+        <Router>
+          <GlobalStyle />
+          <Root />
+        </Router>
       </ThemeProvider>
     </ApolloProvider>
   </Provider>,

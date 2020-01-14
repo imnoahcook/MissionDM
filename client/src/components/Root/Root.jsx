@@ -11,7 +11,6 @@ import Pages from './Pages';
 const Heading = styled.strong`
   display: block;
   font-size: 2rem;
-  margin: 0.75em 0 1em;
 `;
 
 const query = gql`
