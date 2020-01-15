@@ -46,8 +46,6 @@ const Root = () => {
   useEffect(() => {
     graphqlClient.query({ query }).then(({ data }) => {
       if (data.userSession) {
-        // const { games, ...sessionInfo } = ;
-        // dispatch(setGames(games));
         dispatch(setSession(data.userSession));
       }
       setInitialized(true);

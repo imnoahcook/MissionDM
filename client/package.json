@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "build": "parcel build public/index.html",
     "watch": "parcel --port=3000 public/index.html",
     "watch:https": "parcel --port=3000 public/index.html --https"
   },
