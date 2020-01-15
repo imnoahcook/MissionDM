@@ -38,7 +38,7 @@
     "db:migrate:undo": "sequelize db:migrate:undo",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server -s",
-    "build": "yarn run clean && yarn run build-css && yarn run build-server",
+    "build": "yarn run clean && yarn run build-server",
     "start": "node ./build/index.js"
   },
   "author": "Noah Cook <imnoahcook@gmail.com>",
