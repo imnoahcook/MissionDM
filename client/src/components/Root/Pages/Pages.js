@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import AccountDetails from './AccountDetails';
 import GameInfo from './GameInfo';
 import CreateGame from './CreateGame';
-import UserInfo from './UserInfo';
 import { Box } from 'react-bulma-components';
 
 const MinHeight = styled.div`
