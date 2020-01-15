@@ -21,11 +21,12 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
     "@babel/core": "^7.7.5",
     "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
-    "babel-watch": "^7.0.0",
     "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0",
     "nodemon": "^2.0.2",
     "source-map-loader": "^0.2.4"
   },
@@ -37,8 +38,8 @@
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo",
     "clean": "rm -rf build && mkdir build",
-    "build-server": "babel -d ./build ./server -s",
-    "build": "yarn run clean && yarn run build-css && yarn run build-server",
+    "build-server": "babel -d ./build index.js -s",
+    "build": "yarn run clean && yarn run build-server",
     "start": "node ./build/index.js"
   },
   "author": "Noah Cook <imnoahcook@gmail.com>",
