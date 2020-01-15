@@ -34,13 +34,16 @@
     "source-map-loader": "^0.2.4"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development",
     "watch": "babel-watch index.js",
     "dev": "nodemon --exec babel-node index.js",
     "start:dev": "babel-node index.js",
     "docker:start": "docker start missiondm-db",
     "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo"
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "build": "yarn run clean && yarn run build-css && yarn run build-server",
+    "start": "node ./build/index.js"
   },
   "author": "Noah Cook <imnoahcook@gmail.com>",
   "license": "UNLICENSED"

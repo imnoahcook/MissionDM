@@ -5,5 +5,4 @@ export default styled.div`
   margin-bottom: 10px;
   bottom: 0;
   width: 100%;
-  background-color: blue;
 `;

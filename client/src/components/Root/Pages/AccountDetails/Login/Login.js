@@ -40,7 +40,14 @@ const Login = () => {
     });
   };
 
-  return <LoginButton callback={loginCallback} />;
+  return (
+    <>
+      Welcome to Mission DM. Please Log In to facebook to get assigned your
+      first mission
+      <hr />
+      <LoginButton callback={loginCallback} />
+    </>
+  );
 };
 
 export default Login;

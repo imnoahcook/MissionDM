@@ -41,10 +41,10 @@ const TargetSubmitForm = props => {
   return (
     <Bottom>
       <form onSubmit={onSubmit}>
+        <br />
         <InputBoxWithTitle
-          title="Target Password"
           inputRef={register}
-          placeholder="Password"
+          placeholder="Target Password"
           name="password"
           disabled={isSubmitting}
         />

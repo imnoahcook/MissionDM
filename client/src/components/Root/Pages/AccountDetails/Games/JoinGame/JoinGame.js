@@ -14,7 +14,6 @@ import Bottom from '#root/components/shared/Bottom';
 const TempBottom = styled.div`
   bottom: 40px;
   width: 100%;
-  background-color: blue;
 `;
 
 const mutation = gql`
