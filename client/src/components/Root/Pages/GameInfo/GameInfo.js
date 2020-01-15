@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { useSelector } from 'react-redux';
 import gql from 'graphql-tag';
 
 import TargetInformation from './TargetInformation';
@@ -51,8 +50,6 @@ const GameInfo = () => {
   });
 
   if (loading) return 'Loading...';
-  // TODO show on UI some things like my password. This should be a higher order component that shows
-  // different components based on the status of admin.
 
   const body = getComponent(data.gameInfo, gameId, data, refetch);
   return (
