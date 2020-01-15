@@ -61,6 +61,8 @@ const typeDefs = gql`
     killTarget(gameId: ID!, password: String!): Boolean!
     startGame(gameId: ID!): Boolean!
     randomizeTargets(gameId: ID!): Boolean!
+    kill24Hours(gameId: ID!): Boolean!
+    reverseTargets(gameId: ID!): Boolean!
   }
 
   type Query {
