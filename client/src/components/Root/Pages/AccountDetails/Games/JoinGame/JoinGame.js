@@ -5,10 +5,10 @@ import { addGame } from '#root/store/ducks/game';
 import { useDispatch } from 'react-redux';
 
 import gql from 'graphql-tag';
-import InputBoxWithTitle from '#root/components/shared/InputBoxWithTitle';
+import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
 
 import { Button } from 'react-bulma-components';
-import Bottom from '#root/components/shared/Bottom';
+import Bottom from '#root/components/Shared/Bottom';
 
 const mutation = gql`
   mutation($password: String!) {
