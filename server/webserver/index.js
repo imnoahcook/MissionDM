@@ -57,5 +57,11 @@ const credentials = { key: privateKey, cert: certificate };
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(3080);
-httpsServer.listen(3443);
+httpServer.listen(
+  3080,
+  console.info.bind(console, `SERVER: 🚀 Launched backend on port 3080`),
+);
+httpsServer.listen(
+  3443,
+  console.info.bind(console, `SERVER: 🚀 Launched backend on port 3443`),
+);
