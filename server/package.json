@@ -36,11 +36,7 @@
     "start:dev": "babel-node index.js",
     "docker:start": "docker start missiondm-db",
     "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo",
-    "clean": "rm -rf build && mkdir build",
-    "build-server": "babel -d ./build index.js -s",
-    "build": "yarn run clean && yarn run build-server",
-    "start": "node ./build/index.js"
+    "db:migrate:undo": "sequelize db:migrate:undo"
   },
   "author": "Noah Cook <imnoahcook@gmail.com>",
   "license": "UNLICENSED"
