@@ -4,6 +4,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
+    "@apollo/protobufjs": "^1.0.3",
     "apollo-server": "^2.9.13",
     "babel-plugin-module-resolver": "^4.0.0",
     "body-parser": "^1.19.0",
@@ -32,11 +33,14 @@
   },
   "scripts": {
     "watch": "babel-watch index.js",
-    "dev": "nodemon --exec babel-node index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
     "start:dev": "babel-node index.js",
     "docker:start": "docker start missiondm-db",
     "db:migrate": "sequelize db:migrate",
-    "db:migrate:undo": "sequelize db:migrate:undo"
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "build": "yarn clean; yarn build-server",
+    "build-server": "babel ./src -d ./build",
+    "clean": "rm -rf ./build; mkdir build"
   },
   "author": "Noah Cook <imnoahcook@gmail.com>",
   "license": "UNLICENSED"
