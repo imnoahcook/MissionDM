@@ -45,23 +45,22 @@ app.all('*', (req, res) => {
 //   ),
 // );
 
-// const privateKey = fs.readFileSync(
-//   '/etc/letsencrypt/live/floridadm.org/privkey.pem',
-// );
-// const certificate = fs.readFileSync(
-//   '/etc/letsencrypt/live/floridadm.org/fullchain.pem',
-// );
+const privateKey = _fs.default.readFileSync(
+'/etc/letsencrypt/live/floridadm.org/privkey.pem');
 
-// const credentials = { key: privateKey, cert: certificate };
+const certificate = _fs.default.readFileSync(
+'/etc/letsencrypt/live/floridadm.org/fullchain.pem');
+
+
+const credentials = { key: privateKey, cert: certificate };
 
 const httpServer = _http.default.createServer(app);
-// const httpsServer = https.createServer(credentials, app);
+const httpsServer = _https.default.createServer(credentials, app);
 
 httpServer.listen(
 3080,
 console.info.bind(console, `SERVER: 🚀 Launched backend on port 3080`));
 
-// httpsServer.listen(
-//   3443,
-//   console.info.bind(console, `SERVER: 🚀 Launched backend on port 3443`),
-// );
+httpsServer.listen(
+3443,
+console.info.bind(console, `SERVER: 🚀 Launched backend on port 3443`));
