@@ -8,7 +8,6 @@ import gql from 'graphql-tag';
 import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
 
 import { Button } from 'react-bulma-components';
-import Bottom from '#root/components/Shared/Bottom';
 
 const mutation = gql`
   mutation($password: String!) {
@@ -39,7 +38,7 @@ const JoinGame = () => {
     });
   });
   return (
-    <Bottom>
+    <>
       <form onSubmit={onSubmit}>
         <InputBoxWithTitle
           title="Enter password to join a game"
@@ -52,7 +51,7 @@ const JoinGame = () => {
           Join
         </Button>
       </form>
-    </Bottom>
+    </>
   );
 };
 

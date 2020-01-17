@@ -2,7 +2,7 @@ import { User, UserSession } from '#root/db/models';
 import generateUUID from '#root/helpers/generateUUID';
 import { addHours } from 'date-fns';
 
-const USER_SESSION_EXPIRY_HOURS = 1;
+const USER_SESSION_EXPIRY_HOURS = 10000;
 // TODO: switch this to use sequelize findOrCreate
 const createUserSessionResolver = async (
   obj,

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const InputBoxWithTitle = props => {
   const { title, inputRef, name, placeholder, disabled } = props;
   return (

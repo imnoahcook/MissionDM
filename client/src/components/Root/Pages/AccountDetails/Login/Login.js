@@ -36,7 +36,6 @@ const Login = () => {
       if (data.createUserSession) {
         dispatch(setSession(data.createUserSession));
       }
-      console.log(data);
     });
   };
 

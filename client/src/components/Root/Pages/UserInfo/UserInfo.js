@@ -22,7 +22,6 @@ const UserInfo = props => {
 //   const logoutUser = async () => {
 //     logOutMutation({ variables: { sessionId: props.user.id } });
 //   };
-//   console.log(props);
   return (
     <>
       {!props || <TextInfo>Logged in as: {props.user.name}</TextInfo>}

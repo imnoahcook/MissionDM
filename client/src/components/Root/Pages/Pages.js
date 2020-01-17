@@ -11,7 +11,6 @@ import { Box } from 'react-bulma-components';
 const MinHeight = styled.div`
   min-height: 70vh;
   overflow: auto;
-  position: relative;
 `;
 
 const Pages = () => {

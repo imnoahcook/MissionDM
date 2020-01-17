@@ -31,8 +31,6 @@ app.use(injectSession);
 
 apolloServer.applyMiddleware({ app, cors: false, path: '/graphql' });
 
-app.use('/api', require('../routes/api.routes'));
-
 app.all('*', (req, res) => {
   res.status(404).json({ status: 'No Endpoint 🔥' });
 });
@@ -45,23 +43,23 @@ app.all('*', (req, res) => {
 //   ),
 // );
 
-const privateKey = fs.readFileSync(
-  '/etc/letsencrypt/live/floridadm.org/privkey.pem',
-);
-const certificate = fs.readFileSync(
-  '/etc/letsencrypt/live/floridadm.org/fullchain.pem',
-);
+// const privateKey = fs.readFileSync(
+//   '/etc/letsencrypt/live/floridadm.org/privkey.pem',
+// );
+// const certificate = fs.readFileSync(
+//   '/etc/letsencrypt/live/floridadm.org/fullchain.pem',
+// );
 
-const credentials = { key: privateKey, cert: certificate };
+// const credentials = { key: privateKey, cert: certificate };
 
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
+// const httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(
   3080,
   console.info.bind(console, `SERVER: 🚀 Launched backend on port 3080`),
 );
-httpsServer.listen(
-  3443,
-  console.info.bind(console, `SERVER: 🚀 Launched backend on port 3443`),
-);
+// httpsServer.listen(
+//   3443,
+//   console.info.bind(console, `SERVER: 🚀 Launched backend on port 3443`),
+// );

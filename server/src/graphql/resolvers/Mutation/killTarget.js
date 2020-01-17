@@ -4,6 +4,8 @@ const killTarget = async (_, { gameId, password }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
   if (!userId) return false;
 
+  password = password.toLowerCase();
+
   const user = await Player.findOne({
     where: { userId: userId, gameId: gameId },
   });

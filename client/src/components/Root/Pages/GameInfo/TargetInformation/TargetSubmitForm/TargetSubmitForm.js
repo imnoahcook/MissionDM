@@ -1,12 +1,10 @@
 import React from 'react';
 import useForm from 'react-hook-form';
-import styled from 'styled-components';
 import { useMutation } from '@apollo/react-hooks';
 
 import gql from 'graphql-tag';
 
 import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
-import Bottom from '#root/components/Shared/Bottom';
 import { Button } from 'react-bulma-components';
 
 const mutation = gql`
@@ -27,19 +25,14 @@ const TargetSubmitForm = props => {
     await killTarget({
       variables: { password, gameId: props.gameId },
     }).then(({ data }) => {
-      //console.log(data);
       if (data.killTarget) {
-        //display toaster
-        console.log('good');
         props.refetch();
-      } else {
-        console.log('bad');
       }
     });
   });
 
   return (
-    <Bottom>
+    <>
       <form onSubmit={onSubmit}>
         <br />
         <InputBoxWithTitle
@@ -52,7 +45,7 @@ const TargetSubmitForm = props => {
           Compromise
         </Button>
       </form>
-    </Bottom>
+    </>
   );
 };
 

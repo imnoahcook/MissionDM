@@ -5,7 +5,6 @@ import TargetSubmitForm from './TargetSubmitForm';
 import Dead from './Dead';
 
 const TargetInformation = props => {
-  console.log('myprops', props);
   return (
     <>
       {props.gameInfo.alive ? (
