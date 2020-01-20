@@ -4,7 +4,7 @@ import FacebookLogin from 'react-facebook-login';
 const LoginButton = props => {
   return (
     <FacebookLogin
-      appId="457859818215494"
+      appId="1129540520415157"
       autoLoad={false}
       fields="name,email,picture"
       callback={props.callback}

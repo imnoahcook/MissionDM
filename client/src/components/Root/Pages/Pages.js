@@ -11,6 +11,7 @@ import { Box } from 'react-bulma-components';
 const MinHeight = styled.div`
   min-height: 70vh;
   overflow: auto;
+  position: relative;
 `;
 
 const Pages = () => {
@@ -24,9 +25,7 @@ const Pages = () => {
       <MinHeight>
         <Switch>
           <Route exact path="/" component={AccountDetails} />
-          <Route exact path="/createGame" component={CreateGame}>
-            <CreateGame />
-          </Route>
+          <Route exact path="/createGame" component={CreateGame} />
           <Route path="/game/:gameId" children={<GameInfo />} />
         </Switch>
       </MinHeight>

@@ -41,8 +41,8 @@ const Login = () => {
 
   return (
     <>
-      Welcome to Mission DM. Please Log In to facebook to get assigned your
-      first mission
+      Welcome to Mission DM. Please Login with Facebook to play with your
+      friends. We will never make any posts to Facebook.
       <hr />
       <LoginButton callback={loginCallback} />
     </>

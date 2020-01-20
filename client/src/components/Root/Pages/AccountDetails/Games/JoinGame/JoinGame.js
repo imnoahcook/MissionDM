@@ -4,6 +4,15 @@ import { useMutation } from '@apollo/react-hooks';
 import { addGame } from '#root/store/ducks/game';
 import { useDispatch } from 'react-redux';
 
+import styled from 'styled-components';
+
+const Bottom = styled.div`
+  position: absolute;
+  margin-bottom: 10px;
+  bottom: 0px;
+  width: 100%;
+`;
+
 import gql from 'graphql-tag';
 import InputBoxWithTitle from '#root/components/Shared/InputBoxWithTitle';
 
@@ -38,7 +47,7 @@ const JoinGame = () => {
     });
   });
   return (
-    <>
+    <Bottom>
       <form onSubmit={onSubmit}>
         <InputBoxWithTitle
           title="Enter password to join a game"
@@ -51,7 +60,7 @@ const JoinGame = () => {
           Join
         </Button>
       </form>
-    </>
+    </Bottom>
   );
 };
 
