@@ -22,7 +22,13 @@ const kill24HoursMutation = gql`
   }
 `;
 
-const getComponent = (gameId, onClick, plotTwist, plotTwist2) => {
+const reverseTargetsMutation = gql`
+  mutation reverseTargets($gameId: ID!) {
+    reverseTargets(gameId: $gameId)
+  }
+`;
+
+const getComponent = (gameId, onClick, plotTwist, plotTwist2, plotTwist3) => {
   const games = useSelector(state => state.game);
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
@@ -40,6 +46,9 @@ const getComponent = (gameId, onClick, plotTwist, plotTwist2) => {
         </Button>
         <Button fullwidth={true} onClick={plotTwist2}>
           Kill targets that have not killed in the last 24 hours
+        </Button>
+        <Button fullwidth={true} onClick={plotTwist3}>
+          Reverse Targets
         </Button>
       </>
     );
@@ -62,7 +71,18 @@ const AdminPage = props => {
     await kill24Hours({ variables: { gameId: props.gameId } });
   };
 
-  const body = getComponent(props.gameId, onClick, plotTwist, plotTwist2);
+  const [reverseTargets] = useMutation(reverseTargetsMutation);
+  const plotTwist3 = async () => {
+    await reverseTargets({ variables: { gameId: props.gameId } });
+  };
+
+  const body = getComponent(
+    props.gameId,
+    onClick,
+    plotTwist,
+    plotTwist2,
+    plotTwist3,
+  );
   return <div>{body}</div>;
 };
 
