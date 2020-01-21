@@ -1,4 +1,5 @@
 import { Player } from '#root/db/models';
+import randomizeTargets from './randomizeTargets';
 
 const kill24Hours = async (_, { gameId }, context) => {
   const { userId } = context.res.locals.userSession.dataValues;
@@ -22,7 +23,7 @@ const kill24Hours = async (_, { gameId }, context) => {
     }
   }
 
-  //randomize the targets when done
+  randomizeTargets(_, { gameId }, context);
 
   return true;
 };
