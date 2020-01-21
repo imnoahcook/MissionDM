@@ -26,11 +26,12 @@ const randomizeTargets = async (_, { gameId }, context) => {
 
   for (let i = 0; i < alivePlayers.length - 1; ++i) {
     const newTarget = alivePlayers[i + 1].dataValues.id;
-    await alivePlayers[i].update({ targetId: newTarget });
+    await alivePlayers[i].update({ targetId: newTarget, revived: false });
   }
   const firstTarget = alivePlayers[0].dataValues.id;
   await alivePlayers[alivePlayers.length - 1].update({
     targetId: firstTarget,
+    revived: false,
   });
 
   return true;

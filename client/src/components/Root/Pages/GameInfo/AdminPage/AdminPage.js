@@ -16,7 +16,13 @@ const randomizeTargetsMutation = gql`
   }
 `;
 
-const getComponent = (gameId, onClick, plotTwist) => {
+const kill24HoursMutation = gql`
+  mutation kill24Hours($gameId: ID!) {
+    kill24Hours(gameId: $gameId)
+  }
+`;
+
+const getComponent = (gameId, onClick, plotTwist, plotTwist2) => {
   const games = useSelector(state => state.game);
   if (!games) return 'Loading...';
   const running = games.find(game => game.id === gameId).isRunning;
@@ -28,9 +34,14 @@ const getComponent = (gameId, onClick, plotTwist) => {
     );
   } else {
     return (
-      <Button fullwidth={true} onClick={plotTwist}>
-        Randomize Targets
-      </Button>
+      <>
+        <Button fullwidth={true} onClick={plotTwist}>
+          Randomize Targets
+        </Button>
+        <Button fullwidth={true} onClick={plotTwist2}>
+          Kill targets that have not killed in the last 24 hours
+        </Button>
+      </>
     );
   }
 };
@@ -46,7 +57,12 @@ const AdminPage = props => {
     await randomizeTargets({ variables: { gameId: props.gameId } });
   };
 
-  const body = getComponent(props.gameId, onClick, plotTwist);
+  const [kill24Hours] = useMutation(kill24HoursMutation);
+  const plotTwist2 = async () => {
+    await kill24Hours({ variables: { gameId: props.gameId } });
+  };
+
+  const body = getComponent(props.gameId, onClick, plotTwist, plotTwist2);
   return <div>{body}</div>;
 };
 
