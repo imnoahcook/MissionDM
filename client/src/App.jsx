@@ -14,9 +14,11 @@ import * as theme from './theme';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  html {
     background-color: ${props => props.theme.eggshell};
-    box-sizing: border-box;
+  }
+  
+  body {
     text-align: center;
   }
 `;
@@ -25,8 +27,8 @@ render(
   <Provider store={store}>
     <ApolloProvider client={graphqlClient}>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Router>
-          <GlobalStyle />
           <Root />
         </Router>
       </ThemeProvider>
